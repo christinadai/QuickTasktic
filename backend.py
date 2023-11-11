@@ -35,7 +35,7 @@ def sort_rank(rank):
                 rank[j] = rank[j + 1]
                 rank[j + 1] = temp
 
-    return rank	
+    return rank		
 
 #variables
 num_of_tasks = 0 
