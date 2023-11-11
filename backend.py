@@ -19,9 +19,6 @@ Def timetodec(timestr):
 		print(“Invalid time!”)
 
 #rank 
-def calculate_rank(park_rank, travel_time):
-    rank = (0.3 * park_rank) + (0.7 * travel_time)
-    return rank
 
 def sort_rank(rank):
     count = len(rank)
