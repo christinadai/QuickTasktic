@@ -29,6 +29,7 @@ starting_coordinate_x = 37.3491386955373
 starting_coordinate_y = -121.9367374882497  
 num_of_time_sen_event = 0
 
+<<<<<<< HEAD
 #time conversion 
 Def timetodec(timestr):
 	Try:
@@ -37,6 +38,19 @@ Def timetodec(timestr):
 		Return dectime
 	Except value error:
 		print(“Invalid time!”)
+=======
+class Task:
+    def __init__(task_name, time_sensitive=False, ts_time=-1.0, specific_location=False):
+<<<<<<< Updated upstream
+    task_name.time_sensitive = time_sensitive
+    task_name.ts_time = ts_time
+    task_name.specific_location = specific_location
+=======
+        task_name.time_sensitive = time_sensitive
+        task_name.ts_time = ts_time
+        task_name.specific_location = specific_location
+>>>>>>> Stashed changes
+>>>>>>> 4e2f27e34801eea58cf6e3033c0eb4ff93b91140
 
 #rank 
 Int park_rank=Call Park INRIX API;
