@@ -19,8 +19,17 @@ Def timetodec(timestr):
 		print(“Invalid time!”)
 
 #rank 
-Int park_rank=Call Park INRIX API;
-	Int travel_time=Call Travel INRIX API;
-	Int rank=(0.3*park_rank)+(0.7*travel_time);
-	for(i=0; i< count; i++){
-		if(rank[i] < rank[i+1])
+def calculate_rank(park_rank, travel_time):
+    rank = (0.3 * park_rank) + (0.7 * travel_time)
+    return rank
+
+def sort_rank(rank):
+    count = len(rank)
+    for i in range(count):
+        for j in range(0, count - i - 1):
+            if rank[j] < rank[j + 1]:
+                temp = rank[j]
+                rank[j] = rank[j + 1]
+                rank[j + 1] = temp
+
+    return rank
