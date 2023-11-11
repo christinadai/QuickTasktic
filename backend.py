@@ -1,10 +1,4 @@
-#hey
-#we are going to win
-# babba
-#hi
-#j\ysud
-#whats
-#hi
+#variables 
 num_of_tasks = 0  
 tasks = []       # An empty list to store task objects
 curr_time = 0.0  
