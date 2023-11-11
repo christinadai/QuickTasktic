@@ -1,7 +1,8 @@
-#hey
-#we are going to win
-# babba
-#hi
-#j\ysud
-#whats
-#hi
+Def timetodec(timestr):
+
+	Try:
+		hrs, min = map( int, timestr.split(‘:’)
+		Dectime =(hrs+min)/60.0
+		Return dectime
+	Except value error:
+		print(“Invalid time!”)
