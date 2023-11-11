@@ -39,9 +39,13 @@ class Task:
 
 #sortandrank
 def calculate_rank(park_rank, travel_time):
-    rank = (0.3 * park_rank) + (0.7 * travel_time)
+    count = len(park_rank)
+    rank = [0]*count
+    for i in range(count):
+        rank[i] = (0.3 * park_rank[i]) + (0.7 * travel_time[i])
     return rank
-
+         
+       
 def sort_rank(rank):
     count = len(rank)
     for i in range(count):
