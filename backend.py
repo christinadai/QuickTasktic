@@ -9,6 +9,12 @@ starting_coordinate_x = 37.3491386955373
 starting_coordinate_y = -121.9367374882497  
 num_of_time_sen_event = 0
 
+class Task:
+    def __init__(task_name, time_sensitive=False, ts_time=-1.0, specific_location=False):
+        task_name.time_sensitive = time_sensitive
+        task_name.ts_time = ts_time
+        task_name.specific_location = specific_location
+
 #time conversion 
 Def timetodec(timestr):
 	Try:
