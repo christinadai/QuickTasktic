@@ -33,3 +33,5 @@ def sort_rank(rank):
                 rank[j + 1] = temp
 
     return rank
+
+#doublecheck
