@@ -17,11 +17,11 @@ class Task:
 
 #time conversion 
 Def timetodec(timestr):
-	Try:
+	try:
 		hrs, min = map( int, timestr.split(‘:’)
 		Dectime =(hrs+min)/60.0
 		Return dectime
-	Except value error:
+	except value error:
 		print(“Invalid time!”)
 
 #rank 
@@ -36,5 +36,3 @@ def sort_rank(rank):
                 rank[j + 1] = temp
 
     return rank
-
-#doublecheck
