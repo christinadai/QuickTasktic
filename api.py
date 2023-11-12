@@ -218,9 +218,16 @@ def street_parking(lat, long, rad = 800):
     }
 
     response = requests.request("GET", url, headers=headers, data=payload)
-    return (response.json())
 
-print(lot_parking(37.74638779388551, -122.42209196090698))
+    max_item = max(response, key=lambda x: float(x.get("probability", 0)), default=None)
+
+    #max_item = max(response, key=lambda x: x.get("results", [])[0].get("probability", 0), default=None)
+
+    print(max_item)
+
+    #return (response.json())
+
+print(street_parking(37.74304518280319, -122.42438793182373, 75))
 
 """
 #testing:

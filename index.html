@@ -5,23 +5,35 @@
 <head>
     <script src = "index.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="868107718613-sqf1u6015p23gett6de22m0tpn94m9tk.apps.googleusercontent.com">
+    <script>
+        function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+    </script>
     <style>
         body {
             padding: 0;
             font-family: 'Georgia', sans-serif;
             background: linear-gradient(to bottom, #1b4976, #528db7, #ffffff);
-            height: 170vh;
+            height: 250vh;
             display: flex;
             align-items: center;
             flex-direction: column;
             color: #ffffff;
+            line-height: 2;
         }
 
         header{
             text-align: center;
             width: 100%;
-            background-color: #153d65;
+            background-color: #1b4976;
+            margin-bottom:30px;
         }
 
         input {
@@ -58,11 +70,14 @@
 
         h1 {
             font-size: 60px;
+            margin-bottom:20px;
+            margin-top:20px;
         }
 
         h2 {
             margin-top:30px;
-            text-align: center;
+            text-align: right;
+            font-size: 25px;
         }
 
         h3 {
@@ -77,6 +92,7 @@
         margin-top:0px;
         position: fixed;
         bottom: 0;
+        line-height: 1;
         }
 
         p{
@@ -100,11 +116,17 @@
         transition: 0.5s;
         }
 
+        img{
+            margin-top:30px;
+        }
+
     </style>
 </head>
 
 <body>
-    <header><h1>QuickTasktic<script src="https://cdn.lordicon.com/lordicon-1.2.0.js"></script>
+    <header> 
+        <img src="logo-no-background.png" alt="Logo" style="width:160px;height:1px60;">  
+        <h1>  QuickTasktic<script src="https://cdn.lordicon.com/lordicon-1.2.0.js"></script>
         <lord-icon
             src="https://cdn.lordicon.com/guqkthkk.json"
             trigger="loop"
@@ -113,82 +135,87 @@
             colors="primary:#e4e4e4"
             style="width:65px;height:65px">
         </lord-icon></h1>
+        
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+
         <h3>Plan your day with ease!</h3>
     </header>
-
     <section id="Errands">
-        <h2>Errands</h2>
-
+        <p> - Sign into your Google account<br>
+        - List up to five errands you'd like to accomplish, including any specified times (military) or locations <br>
+        - Our website will analyze the quickest route <br>
+        - Optimal locations for errands in which an address is not specified will be found <br>
+        - A link to a Google calendar with your itenerary will be generated </p> <br>
     <form id="errandsForm">
-
     
     <label>   
-        <input type="text" id="errand1" tabindex="10" placeholder="Errand #1"><br>
+        <input type="text" id="errand1" size="30" tabindex="10" placeholder="Errand #1"><br>
         Is This Event Time-Sensitive?
         <input type="checkbox" id="tsBool1"> Yes <br>
         <div id="textboxContainer" style="display: none;">
-            <input type="text" maxwidth=50px id="tsTime1" tabindex="10" placeholder="Start Time Ex. 17:25">
+            <input type="text" maxwidth=50px id="tsTime1" size="10" tabindex="10" placeholder="Start Time ">
         </div>
         Do You Have A Particular Address?
         <input type="checkbox" id="specLocBool1"> Yes <br>
         <div id="textboxContainer1" style="display: none;">
-            <input type="text" id="specLoc1" tabindex="10" placeholder="Address">
+            <input type="text" id="specLoc1" size="10" tabindex="10" placeholder="Address">
         </div> 
     </label>
 
     <label>   
-        <input type="text" id="errand2" tabindex="10" placeholder="Errand #2"><br>
+        <input type="text" id="errand2" size="30" tabindex="10" placeholder="Errand #2"><br>
         Is This Event Time-Sensitive?
         <input type="checkbox" id="tsBool2"> Yes <br>
         <div id="textboxContainer2" style="display: none;">
-            <input type="text" maxwidth=50px id="tsTime2" tabindex="10" placeholder="Start Time (Ex. 17:25)">
+            <input type="text" maxwidth=50px id="tsTime2" size="10" tabindex="10" placeholder="Start Time">
         </div>
         Do You Have A Particular Address?
         <input type="checkbox" id="specLocBool2"> Yes <br>
         <div id="textboxContainer3" style="display: none;">
-            <input type="text" id="specLoc2" tabindex="10" placeholder="Address">
+            <input type="text" id="specLoc2" size="10" tabindex="10" placeholder="Address">
         </div> 
     </label>
 
     <label>   
-        <input type="text" id="errand3" tabindex="10" placeholder="Errand #3"><br>
+        <input type="text" id="errand3" size="30" tabindex="10" placeholder="Errand #3"><br>
         Is This Event Time-Sensitive?
         <input type="checkbox" id="tsBool3"> Yes <br>
         <div id="textboxContainer4" style="display: none;">
-            <input type="text" maxwidth=50px id="tsTime3" tabindex="10" placeholder="Start Time Ex. 17:25">
+            <input type="text" maxwidth=50px id="tsTime3" size="10" tabindex="10" placeholder="Start Time">
         </div>
         Do You Have A Particular Address?
         <input type="checkbox" id="specLocBool3"> Yes <br>
         <div id="textboxContainer5" style="display: none;">
-            <input type="text" id="specLoc3" tabindex="10" placeholder="Address">
+            <input type="text" id="specLoc3" size="10" tabindex="10" placeholder="Address">
         </div> 
     </label>
 
     <label>   
-        <input type="text" id="errand4" tabindex="10" placeholder="Errand #4"><br>
+        <input type="text" id="errand4" size="30" tabindex="10" placeholder="Errand #4"><br>
         Is This Event Time-Sensitive?
         <input type="checkbox" id="tsBool4"> Yes <br>
         <div id="textboxContainer6" style="display: none;">
-            <input type="text" maxwidth=50px id="tsTime4" tabindex="10" placeholder="Start Time Ex. 17:25">
+            <input type="text" maxwidth=50px id="tsTime4" size="10" tabindex="10" placeholder="Start Time ">
         </div>
         Do You Have A Particular Address?
         <input type="checkbox" id="specLocBool4"> Yes <br>
         <div id="textboxContainer7" style="display: none;">
-            <input type="text" id="specLoc4" tabindex="10" placeholder="Address">
+            <input type="text" id="specLoc4" size="10" tabindex="10" placeholder="Address">
         </div> 
     </label>
 
     <label>   
-        <input type="text" id="errand5" tabindex="10" placeholder="Errand #5"><br>
+        <input type="text" id="errand5" size="30" tabindex="10" placeholder="Errand #5"><br>
         Is This Event Time-Sensitive?
         <input type="checkbox" id="tsBool5"> Yes <br>
         <div id="textboxContainer8" style="display: none;">
-            <input type="text" maxwidth=50px id="tsTime5" tabindex="10" placeholder="Start Time Ex. 17:25">
+            <input type="text" maxwidth=50px id="tsTime5" size="10" tabindex="10" placeholder="Start Time">
         </div>
         Do You Have A Particular Address?
         <input type="checkbox" id="specLocBool5"> Yes <br>
         <div id="textboxContainer9" style="display: none;">
-            <input type="text" id="specLoc5" tabindex="10" placeholder="Address">
+            <input type="text" id="specLoc5" size="10" tabindex="10" placeholder="Address">
         </div> 
     </label>
 
