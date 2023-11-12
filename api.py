@@ -1,5 +1,6 @@
 import requests
 import json
+import xml.etree.ElementTree as ET
 
 def get_uas():
 
@@ -39,9 +40,16 @@ def route_travel_times(count, time_interval, lat_1, long_1, lat_2, long_2):
     }
 
     response = requests.request("GET", url, headers=headers, data=payload)
-    return response.json()
+    # Parse the XML response
+    root = ET.fromstring(response)
+    #Access the specific elements that we need
+    
+    
+    return 
+    
+
+    #return response.json()
 
 
 
-# get_uas()
-# route_travel_times(count, time_interval, lat_1, long_1, lat_2, long_2)
+route_travel_times(15, 45, 37.352100, -121.936780, 37.356930, -121.936630)
