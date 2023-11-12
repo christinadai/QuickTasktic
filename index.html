@@ -37,8 +37,7 @@
         }
 
         input[type="submit"] {
-            background-color: #4CAF50;
-            color: #ffffff;
+            color: #0d3247;
             cursor: pointer;
         }
 
@@ -62,7 +61,12 @@
         }
 
         h2 {
+            margin-top:30px;
             text-align: center;
+        }
+
+        h3 {
+            margin-top:5px;
         }
 
         footer {
@@ -80,13 +84,27 @@
         }
 
         button{
+            width:110px;
+            height:50px;
+            background-color: #0d3247;
+            margin-top: 30px;
             margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: normal;
+            font-family:'Trebuchet MS';
+            color: #FFF;
         }
+
+        button:hover {
+        background-color:rgb(117, 146, 225);
+        transition: 0.5s;
+        }
+
     </style>
 </head>
 
 <body>
-    <header><h1>QuickTASKtic<script src="https://cdn.lordicon.com/lordicon-1.2.0.js"></script>
+    <header><h1>QuickTasktic<script src="https://cdn.lordicon.com/lordicon-1.2.0.js"></script>
         <lord-icon
             src="https://cdn.lordicon.com/guqkthkk.json"
             trigger="loop"
@@ -94,7 +112,9 @@
             state="in-reveal"
             colors="primary:#e4e4e4"
             style="width:65px;height:65px">
-        </lord-icon></h1></header>
+        </lord-icon></h1>
+        <h3>Plan your day with ease!</h3>
+    </header>
 
     <section id="Errands">
         <h2>Errands</h2>
@@ -111,69 +131,67 @@
         </div>
         Do You Have A Particular Address?
         <input type="checkbox" id="specLocBool1"> Yes <br>
-        <div id="textboxContainer3" style="display: none;">
+        <div id="textboxContainer1" style="display: none;">
             <input type="text" id="specLoc1" tabindex="10" placeholder="Location">
         </div> 
     </label>
 
     <label>   
-        <input type="text" id="text" tabindex="10" placeholder="Errand #2"><br>
+        <input type="text" id="errand2" tabindex="10" placeholder="Errand #2"><br>
         Is This Event Time-Sensitive?
-        <input type="checkbox" id="showTextboxCheckbox1"> Yes <br>
-        <div id="textboxContainer1" style="display: none;">
-            <input type="text" maxwidth=50px id="text" tabindex="10" placeholder="Start Time (Ex. 17:25)">
-        </div>
-        Do You Have A Particular Address?
-        <input type="checkbox" id="showTextboxCheckbox2"> Yes <br>
+        <input type="checkbox" id="tsBool2"> Yes <br>
         <div id="textboxContainer2" style="display: none;">
-            <input type="text" id="text" tabindex="10" placeholder="Location">
+            <input type="text" maxwidth=50px id="tsTime2" tabindex="10" placeholder="Start Time (Ex. 17:25)">
+        </div>
+        Do You Have A Particular Address?
+        <input type="checkbox" id="specLocBool2"> Yes <br>
+        <div id="textboxContainer3" style="display: none;">
+            <input type="text" id="specLoc2" tabindex="10" placeholder="Location">
         </div> 
     </label>
 
     <label>   
-        <input type="text" id="text" tabindex="10" placeholder="Errand #3"><br>
+        <input type="text" id="errand3" tabindex="10" placeholder="Errand #3"><br>
         Is This Event Time-Sensitive?
-        <input type="checkbox" id="showTextboxCheckbox4"> Yes <br>
+        <input type="checkbox" id="tsBool3"> Yes <br>
         <div id="textboxContainer4" style="display: none;">
-            <input type="text" maxwidth=50px id="text" tabindex="10" placeholder="Start Time Ex. 17:25">
+            <input type="text" maxwidth=50px id="tsTime3" tabindex="10" placeholder="Start Time Ex. 17:25">
         </div>
         Do You Have A Particular Address?
-        <input type="checkbox" id="showTextboxCheckbox5"> Yes <br>
+        <input type="checkbox" id="specLocBool3"> Yes <br>
         <div id="textboxContainer5" style="display: none;">
-            <input type="text" id="text" tabindex="10" placeholder="Location">
+            <input type="text" id="specLoc3" tabindex="10" placeholder="Location">
         </div> 
     </label>
 
     <label>   
-        <input type="text" id="text" tabindex="10" placeholder="Errand #4"><br>
+        <input type="text" id="errand4" tabindex="10" placeholder="Errand #4"><br>
         Is This Event Time-Sensitive?
-        <input type="checkbox" id="showTextboxCheckbox6"> Yes <br>
+        <input type="checkbox" id="tsBool4"> Yes <br>
         <div id="textboxContainer6" style="display: none;">
-            <input type="text" maxwidth=50px id="text" tabindex="10" placeholder="Start Time Ex. 17:25">
+            <input type="text" maxwidth=50px id="tsTime4" tabindex="10" placeholder="Start Time Ex. 17:25">
         </div>
         Do You Have A Particular Address?
-        <input type="checkbox" id="showTextboxCheckbox7"> Yes <br>
+        <input type="checkbox" id="specLocBool4"> Yes <br>
         <div id="textboxContainer7" style="display: none;">
-            <input type="text" id="text" tabindex="10" placeholder="Location">
+            <input type="text" id="specLoc4" tabindex="10" placeholder="Location">
         </div> 
     </label>
 
     <label>   
-        <input type="text" id="text" tabindex="10" placeholder="Errand #5"><br>
+        <input type="text" id="errand5" tabindex="10" placeholder="Errand #5"><br>
         Is This Event Time-Sensitive?
-        <input type="checkbox" id="showTextboxCheckbox8"> Yes <br>
+        <input type="checkbox" id="tsBool5"> Yes <br>
         <div id="textboxContainer8" style="display: none;">
-            <input type="text" maxwidth=50px id="text" tabindex="10" placeholder="Start Time Ex. 17:25">
+            <input type="text" maxwidth=50px id="tsTime5" tabindex="10" placeholder="Start Time Ex. 17:25">
         </div>
         Do You Have A Particular Address?
-        <input type="checkbox" id="showTextboxCheckbox9"> Yes <br>
+        <input type="checkbox" id="specLocBool5"> Yes <br>
         <div id="textboxContainer9" style="display: none;">
-            <input type="text" id="text" tabindex="10" placeholder="Location">
+            <input type="text" id="specLoc5" tabindex="10" placeholder="Location">
         </div> 
     </label>
 
-
-    
 
 </section>
     <!-- Add more errands as needed -->
@@ -181,102 +199,99 @@
     <!-- <button type="button" onclick="submit()">Submit!</button> -->
     <button onclick="submitForm()">Submit!</button>
     <script>
-        // function submit() {
-        //     //write POST stuff here
-        // }
 
-    const showTextboxCheckbox = document.getElementById('showTextboxCheckbox');
+    const tsBool1 = document.getElementById('tsBool1');
     const textboxContainer = document.getElementById('textboxContainer');
 
-    const showTextboxCheckbox2 = document.getElementById('showTextboxCheckbox2');
-    const textboxContainer2 = document.getElementById('textboxContainer2');
-
-    const showTextboxCheckbox3 = document.getElementById('showTextboxCheckbox3');
-    const textboxContainer3 = document.getElementById('textboxContainer3');
-
-    const showTextboxCheckbox4 = document.getElementById('showTextboxCheckbox4');
-    const textboxContainer4 = document.getElementById('textboxContainer4');
-
-    const showTextboxCheckbox5 = document.getElementById('showTextboxCheckbox5');
-    const textboxContainer5 = document.getElementById('textboxContainer5');
-
-    const showTextboxCheckbox6 = document.getElementById('showTextboxCheckbox6');
-    const textboxContainer6 = document.getElementById('textboxContainer6');
-
-    const showTextboxCheckbox7 = document.getElementById('showTextboxCheckbox7');
-    const textboxContainer7 = document.getElementById('textboxContainer7');
-
-    const showTextboxCheckbox8 = document.getElementById('showTextboxCheckbox8');
-    const textboxContainer8 = document.getElementById('textboxContainer8');
-
-    const showTextboxCheckbox9 = document.getElementById('showTextboxCheckbox9');
-    const textboxContainer9 = document.getElementById('textboxContainer9');
-
-    const showTextboxCheckbox1 = document.getElementById('showTextboxCheckbox1');
+    const specLocBool1 = document.getElementById('specLocBool1');
     const textboxContainer1 = document.getElementById('textboxContainer1');
 
-    // Add a click event listener to the checkbox
-    showTextboxCheckbox.addEventListener('click', function() {
-      // Show or hide the textbox based on the checkbox state
-    textboxContainer.style.display = showTextboxCheckbox.checked ? 'block' : 'none';
-    });
+    const tsBool2 = document.getElementById('tsBool2');
+    const textboxContainer2 = document.getElementById('textboxContainer2');
 
-    showTextboxCheckbox2.addEventListener('click', function() {
-      // Show or hide the textbox based on the checkbox state
-    textboxContainer2.style.display = showTextboxCheckbox2.checked ? 'block' : 'none';
-    });
+    const specLocBool2 = document.getElementById('specLocBool2');
+    const textboxContainer3 = document.getElementById('textboxContainer3');
 
-    // Add a click event listener to the checkbox
-    showTextboxCheckbox3.addEventListener('click', function() {
-      // Show or hide the textbox based on the checkbox state
-    textboxContainer3.style.display = showTextboxCheckbox3.checked ? 'block' : 'none';
-    });
+    const tsBool3 = document.getElementById('tsBool3');
+    const textboxContainer4 = document.getElementById('textboxContainer4');
 
-    // Add a click event listener to the checkbox
-    showTextboxCheckbox4.addEventListener('click', function() {
-      // Show or hide the textbox based on the checkbox state
-    textboxContainer4.style.display = showTextboxCheckbox4.checked ? 'block' : 'none';
-    });
+    const specLocBool3 = document.getElementById('specLocBool3');
+    const textboxContainer5 = document.getElementById('textboxContainer5');
 
-    // Add a click event listener to the checkbox
-    showTextboxCheckbox5.addEventListener('click', function() {
-      // Show or hide the textbox based on the checkbox state
-    textboxContainer5.style.display = showTextboxCheckbox5.checked ? 'block' : 'none';
-    });
+    const tsBool4 = document.getElementById('tsBool4');
+    const textboxContainer6 = document.getElementById('textboxContainer6');
+
+    const specLocBool4 = document.getElementById('specLocBool4');
+    const textboxContainer7 = document.getElementById('textboxContainer7');
+
+    const tsBool5 = document.getElementById('tsBool5');
+    const textboxContainer8 = document.getElementById('textboxContainer8');
+
+    const specLocBool5 = document.getElementById('specLocBool5');
+    const textboxContainer9 = document.getElementById('textboxContainer9');
 
     // Add a click event listener to the checkbox
-    showTextboxCheckbox6.addEventListener('click', function() {
+    tsBool1.addEventListener('click', function() {
       // Show or hide the textbox based on the checkbox state
-    textboxContainer6.style.display = showTextboxCheckbox6.checked ? 'block' : 'none';
+    textboxContainer.style.display = tsBool1.checked ? 'block' : 'none';
     });
 
-    // Add a click event listener to the checkbox
-    showTextboxCheckbox7.addEventListener('click', function() {
+    specLocBool1.addEventListener('click', function() {
       // Show or hide the textbox based on the checkbox state
-    textboxContainer7.style.display = showTextboxCheckbox7.checked ? 'block' : 'none';
+    textboxContainer1.style.display = specLocBool1.checked ? 'block' : 'none';
     });
 
     // Add a click event listener to the checkbox
-    showTextboxCheckbox8.addEventListener('click', function() {
+    tsBool2.addEventListener('click', function() {
       // Show or hide the textbox based on the checkbox state
-    textboxContainer8.style.display = showTextboxCheckbox8.checked ? 'block' : 'none';
+    textboxContainer2.style.display = tsBool2.checked ? 'block' : 'none';
     });
 
     // Add a click event listener to the checkbox
-    showTextboxCheckbox9.addEventListener('click', function() {
+    specLocBool2.addEventListener('click', function() {
       // Show or hide the textbox based on the checkbox state
-    textboxContainer9.style.display = showTextboxCheckbox9.checked ? 'block' : 'none';
+    textboxContainer3.style.display = specLocBool2.checked ? 'block' : 'none';
     });
 
     // Add a click event listener to the checkbox
-    showTextboxCheckbox1.addEventListener('click', function() {
+    tsBool3.addEventListener('click', function() {
       // Show or hide the textbox based on the checkbox state
-    textboxContainer1.style.display = showTextboxCheckbox1.checked ? 'block' : 'none';
+    textboxContainer4.style.display = tsBool3.checked ? 'block' : 'none';
+    });
+
+    // Add a click event listener to the checkbox
+    specLocBool3.addEventListener('click', function() {
+      // Show or hide the textbox based on the checkbox state
+    textboxContainer5.style.display = specLocBool3.checked ? 'block' : 'none';
+    });
+
+    // Add a click event listener to the checkbox
+    tsBool4.addEventListener('click', function() {
+      // Show or hide the textbox based on the checkbox state
+    textboxContainer6.style.display = tsBool4.checked ? 'block' : 'none';
+    });
+
+    // Add a click event listener to the checkbox
+    specLocBool4.addEventListener('click', function() {
+      // Show or hide the textbox based on the checkbox state
+    textboxContainer7.style.display = specLocBool4.checked ? 'block' : 'none';
+    });
+
+    // Add a click event listener to the checkbox
+    stsBool5.addEventListener('click', function() {
+      // Show or hide the textbox based on the checkbox state
+    textboxContainer8.style.display = tsBool5.checked ? 'block' : 'none';
+    });
+
+    // Add a click event listener to the checkbox
+    specLocBool5.addEventListener('click', function() {
+      // Show or hide the textbox based on the checkbox state
+    textboxContainer9.style.display = specLocBool5.checked ? 'block' : 'none';
     });
         </script>
     </body>
     <footer>
-        <p>Authors: Arran Kooner, Christina Dai, Ian Kennar, Anika Sethi, Ryan Kiniris, Gwyn Anawalt</p>
-        <p><a href="mailto:hege@example.com">hege@example.com</a></p>
+        <p>Arran Kooner, Christina Dai, Ian Kennar, Anika Sethi, Ryan Kiniris, Gwyn Anawalt</p>
+        <p>Questions? Email:<a href="mailto:ikennar@scu.edu">ikennar@scu.edu</a></p>
     </footer>
 </html>
