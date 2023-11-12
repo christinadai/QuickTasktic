@@ -49,13 +49,13 @@ starting_coordinate_y = -121.9367374882497
 num_of_time_sen_event = 0
 
 class Task:
-    def __init__(task_name, time_sensitive=False, ts_time_string='100:00', specific_location=False, specific_coordX = 0.0, specific_coordY = 0.0):
-        task_name.time_sensitive = time_sensitive
-        task_name.ts_time_string = ts_time_string
-        task_name.ts_time = ts_time
-        task_name.specific_location = specific_location
-        task_name.specific_coordX = specific_coordX
-        task_name.specific_coordY = specific_coordY
+    def __init__(self, task_name, time_sensitive=False, ts_time_string='100:00', specific_location=False, specific_coordX=0.0, specific_coordY=0.0):
+        self.task_name = task_name
+        self.time_sensitive = time_sensitive
+        self.ts_time_string = ts_time_string
+        self.specific_location = specific_location
+        self.specific_coordX = specific_coordX
+        self.specific_coordY = specific_coordY
 
 ts_time = 0.0
 ts_time = timetodec(ts_time)
