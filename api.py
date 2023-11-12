@@ -35,7 +35,7 @@ def find_route(lat_1, long_1, lat_2, long_2):
 
 
 # INRIX API 2: Gives fastest travel time given two locations (lat, long) format
-def route_travel_times(lat_1, long_1, lat_2, long_2, count = 1, time_interval = 45, dep_time = "2023-12-12T01:23:00Z"):
+def route_travel_times(lat_1, long_1, lat_2, long_2, count = 3, time_interval = 45, dep_time = "2023-11-13T10:23:00Z"):
     auth = get_uas()
     
     route_id = find_route(lat_1, long_1, lat_2, long_2)
@@ -53,23 +53,27 @@ def route_travel_times(lat_1, long_1, lat_2, long_2, count = 1, time_interval = 
     #Convert XML/Text file (response) to JSON (json_data)
 
     xml_dict = xmltodict.parse(response.text)
+    # print(type(xml_dict))
+    # print(xml_dict)
 
-    # Convert the Python dictionary to string
-    str_data = json.dumps(xml_dict, indent=2)  # indent for pretty printing
+    # # Convert the Python dictionary to string
+    # str_data = json.dumps(xml_dict, indent=2)  # indent for pretty printing
+    # print(type(str_data))
 
-    #Convert data from string to json
-    parsed_json = json.loads(str_data)
+    # #Convert data from string to json
+    # parsed_json = json.loads(str_data)
+
+    #print(parsed_json)
     
     # Use get to get info
-    travel_time = parsed_json.get('Inrix', {}).get("Trip", {}).get("Route", {}).get("TravelTimes", {}).get("TravelTime", [{}])[0].get("@travelTimeMinutes")
+    travel_time = xml_dict.get('Inrix', {}).get("Trip", {}).get("Route", {}).get("TravelTimes", {}).get("TravelTime", [{}])[0].get("@travelTimeMinutes")
 
     return travel_time
 
-# INRIX API 3: gives probability of getting street parking as a percent within 0.5 mile radius 
-def street_parking(lat, long, rad = 800):
+# INRIX API 3: gives probability of getting lot parking as a percent within a 150 meter radius 
+def lot_parking(lat, long):
     auth = get_uas()
-
-    url = f"https://api.iq.inrix.com/blocks/v3?point={lat}%7C-{long}&radius={rad}"
+    url = "https://api.iq.inrix.com/lots/v3?point={lat}%7C{long}&radius=150"
 
     payload = {}
     headers = {
@@ -77,10 +81,25 @@ def street_parking(lat, long, rad = 800):
     }
 
     response = requests.request("GET", url, headers=headers, data=payload)
-    
+    print(response.text)
+    return response.json()
+
+
+# INRIX API 4: gives probability of getting street parking as a percent within 0.5 mile radius 
+def street_parking(lat, long, rad = 800):
+    auth = get_uas()
+
+    url = f"https://api.iq.inrix.com/blocks/v3?point={lat}%7C{long}&radius=200"
+
+    payload = {}
+    headers = {
+      'Authorization': f'Bearer {auth}'
+    }
+
+    response = requests.request("GET", url, headers=headers, data=payload)
     return (response.json())
 
-
+print(lot_parking(37.74638779388551, -122.42209196090698))
 
 """
 #testing:
