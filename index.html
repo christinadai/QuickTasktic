@@ -13,17 +13,19 @@
             padding: 0;
             font-family: 'Georgia', sans-serif;
             background: linear-gradient(to bottom, #1b4976, #528db7, #ffffff);
-            height: 210vh;
+            height: 250vh;
             display: flex;
             align-items: center;
             flex-direction: column;
             color: #ffffff;
+            line-height: 2;
         }
 
         header{
             text-align: center;
             width: 100%;
             background-color: #153d65;
+            margin-bottom:30px;
         }
 
         input {
@@ -60,6 +62,8 @@
 
         h1 {
             font-size: 60px;
+            margin-bottom:20px;
+            margin-top:20px;
         }
 
         h2 {
@@ -80,32 +84,12 @@
         margin-top:0px;
         position: fixed;
         bottom: 0;
+        line-height: 1;
         }
 
         p{
             text-align: center; 
         }
-
-        p1 {
-            text-align: right;
-        }
-
-        p2 {
-            text-align: right;
-        }
-
-        p3 {
-            text-align: right;
-        }
-
-        p4 {
-            text-align: right;
-        }
-
-        p5 {
-            text-align: right;
-        }
-
 
         button{
             width:110px;
@@ -124,12 +108,17 @@
         transition: 0.5s;
         }
 
+        img{
+            margin-top:30px;
+        }
+
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>QuickTasktic<script src="https://cdn.lordicon.com/lordicon-1.2.0.js"></script>
+    <header> 
+        <img src="logo-no-background.png" alt="Logo" style="width:120px;height:120px;">  
+        <h1>  QuickTasktic<script src="https://cdn.lordicon.com/lordicon-1.2.0.js"></script>
         <lord-icon
             src="https://cdn.lordicon.com/guqkthkk.json"
             trigger="loop"
@@ -144,15 +133,13 @@
 
         <h3>Plan your day with ease!</h3>
     </header>
-    <img src="images/logo-no-background.png" alt="Logo">
     <section id="Errands">
-        <p1> - Sign into your Google account with the button in the top-right corner</p1><br>
-        <p2> - List up to five errands you'd like to accomplish by entering their name, whether or not they are time-sensitive, and if they occur at a particular location</p2> <br>
-        <p3> - Our website will analyze the quickest route to accomplish all of your errands while taking into account parking at each of the locations listed</p3> <br>
-        <p4> - Optimal locations for errands in which an address is not specified will be found</p4> <br>
-        <p5> - A link to a Google calendar with your full-day itenerary will be generated that you can subscribe too!</p5> <br>
+        <p> - Sign into your Google account<br>
+        - List up to five errands you'd like to accomplish <br>
+        - Our website will analyze the quickest route <br>
+        - Optimal locations for errands in which an address is not specified will be found <br>
+        - A link to a Google calendar with your itenerary will be generated </p> <br>
     <form id="errandsForm">
-
     
     <label>   
         <input type="text" id="errand1" tabindex="10" placeholder="Errand #1"><br>
