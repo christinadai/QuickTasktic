@@ -35,9 +35,11 @@ def find_route(lat_1, long_1, lat_2, long_2):
 
 
 #Defauly departure time given in case not provided by user
-def route_travel_times(count, time_interval, lat_1, long_1, lat_2, long_2, dep_time = "2023-11-12T01:23:00Z"):
+def route_travel_times(count, time_interval, lat_1, long_1, lat_2, long_2, dep_time = "2023-12-12T01:23:00Z"):
     auth = get_uas()
+    
     route_id = find_route(lat_1, long_1, lat_2, long_2)
+    print(route_id)
 
     url = f"https://api.iq.inrix.com/routeTravelTimes?routeId={route_id}&departureTime={dep_time}&travelTimeCount={count}&travelTimeInterval={time_interval}"
 
@@ -57,10 +59,10 @@ def route_travel_times(count, time_interval, lat_1, long_1, lat_2, long_2, dep_t
 
     #Convert data from string to json
     parsed_json = json.loads(str_data)
-
+    
     # Use get to get info
     travel_time = parsed_json.get('Inrix', {}).get("Trip", {}).get("Route", {}).get("TravelTimes", {}).get("TravelTime", [{}])[0].get("@travelTimeMinutes")
-    
+
     return travel_time
 
 #Half a mile radius, maximum 10 minute walk
@@ -80,7 +82,7 @@ def street_parking(lat, long, rad = 800):
 
 
 
-
+print(route_travel_times(15, 45, 37.770581, -122.442550, 37.765297, -122.442527, "2023-12-12T01:23:00Z"))
 """
 #testing:
 #street_parking(37.74304518280319, 122.42438793182373, 50)
