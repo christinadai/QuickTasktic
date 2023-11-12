@@ -2,7 +2,7 @@ async function submitForm() {
     // alert('submitted form');
     console.log('submitted form');
 
-    var starttime = document.getElementById("starttime").value; 
+    // var starttime = document.getElementById("starttime").value; 
 
     var errand1 = document.getElementById("errand1").value;  
     var tsTime1 = document.getElementById("tsTime1").value;  
@@ -32,7 +32,7 @@ async function submitForm() {
         headers: {
             "Content-Type": "text/plain"
         },
-        body: JSON.stringify([{starttime: starttime}, { errand1: errand1, tsTime1: tsTime1, specLoc1: specLoc1}, { errand2: errand2, tsTime2: tsTime2, specLoc2: specLoc2}, { errand3: errand3, tsTime3: tsTime3, specLoc3: specLoc3}, { errand4: errand4, tsTime4: tsTime4, specLoc4: specLoc4}, { errand5: errand5, tsTime5: tsTime5, specLoc5: specLoc5}])  // add to this if you have more variables
+        body: JSON.stringify([{ errand1: errand1, tsTime1: tsTime1, specLoc1: specLoc1}, { errand2: errand2, tsTime2: tsTime2, specLoc2: specLoc2}, { errand3: errand3, tsTime3: tsTime3, specLoc3: specLoc3}, { errand4: errand4, tsTime4: tsTime4, specLoc4: specLoc4}, { errand5: errand5, tsTime5: tsTime5, specLoc5: specLoc5}])  // add to this if you have more variables
         // body: JSON.stringify({ errand2: errand2, tsTime2: tsTime2, specLoc2: specLoc2})
     });
     //const data = await response.json();
