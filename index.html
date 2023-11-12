@@ -54,10 +54,13 @@
         display: block;
         margin-bottom: 5px;
         float: left;
-        width: 50%;
+        width: 100%;
         padding: 10px;
         }
 
+        h1 {
+            font-size: 60px;
+        }
         footer {
         background-color: #1b4976;
         text-align: center;
@@ -77,32 +80,34 @@
 </head>
 
 <body>
-    <header><h1>QuickTASKtic</h1></header>
-    <div>
-        <p>Please Enter the Number of Errands</p>
-        <form>
-            <input type="number" id="errandsInput" name="errandsInput" min="1" max="8">
-            <button onclick="submitErrands()">Submit</button>
-        </form>
-    </div>
+    <header><h1>QuickTASKtic<script src="https://cdn.lordicon.com/lordicon-1.2.0.js"></script>
+        <lord-icon
+            src="https://cdn.lordicon.com/guqkthkk.json"
+            trigger="loop"
+            delay="1000"
+            state="in-reveal"
+            colors="primary:#e4e4e4"
+            style="width:65px;height:65px">
+        </lord-icon></h1></header>
 
     <section id="Errands">
         <h2>Errands List</h2>
 
     <form id="errandsForm">
 
-    <label>
-        <input type="text" name="errand1" value="Errand1"> 
-        <input type="checkbox" id="showTextboxCheckbox"> Yes
-        <input type="checkbox" name="timeSensitive2" value="no"> No
-        <input type="checkbox" id="showTextboxCheckbox"> Address
-        <input type="checkbox" name="timeSensitive2" value="no"> Closest
-    </label>
-    <div id="textboxContainer" style="display: none;">
-        <label for="textBox">Location:</label>
-        <input type="text" id="textBox">
-    </div>
-
+    
+    <label>   
+        <input type="text" id="text" tabindex="10" placeholder="Errand #1"><br>
+        Is This Event Time-Sensitive?
+        <input type="checkbox" id="showTextboxCheckbox"> Yes <br>
+        <div id="textboxContainer" style="display: none;">
+            <input type="text" id="text" tabindex="10" placeholder="Start Time Ex. 17:25">
+        </div>
+        Do You Have A Particular Address?
+        <input type="checkbox" id="showTextboxCheckbox"> Yes <br>
+        <div id="textboxContainer" style="display: none;">
+            <input type="text" id="text" tabindex="10" placeholder="Location">
+        </div> 
     <label>
         <input type="text" name="errand2" value="Errand1"> 
         <input type="checkbox" id="showTextboxCheckbox"> Yes
@@ -113,35 +118,8 @@
         <input type="text" id="textBox">
     </div>
 
-    <label>
-        <input type="text" name="errand3" value="Errand1"> 
-        <input type="checkbox" id="showTextboxCheckbox"> Yes
-        <input type="checkbox" name="timeSensitive2" value="no"> No
-    </label>
-    <div id="textboxContainer" style="display: none;">
-        <label for="textBox">Location:</label>
-        <input type="text" id="textBox">
-    </div>
 
-    <label>
-        <input type="text" name="errand4" value="Errand1"> 
-        <input type="checkbox" id="showTextboxCheckbox"> Yes
-        <input type="checkbox" name="timeSensitive2" value="no"> No
-    </label>
-    <div id="textboxContainer" style="display: none;">
-        <label for="textBox">Location:</label>
-        <input type="text" id="textBox">
-    </div>
-
-    <label>
-        <input type="text" name="errand5" value="Errand1"> 
-        <input type="checkbox" id="showTextboxCheckbox"> Yes
-        <input type="checkbox" name="timeSensitive2" value="no"> No
-    </label>
-    <div id="textboxContainer" style="display: none;">
-        <label for="textBox">Location:</label>
-        <input type="text" id="textBox">
-    </div>
+    
 
 </section>
     <!-- Add more errands as needed -->
