@@ -5,6 +5,8 @@
 <head>
     <script src = "index.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="Test 1">
     
     <style>
         body {
@@ -62,7 +64,8 @@
 
         h2 {
             margin-top:30px;
-            text-align: center;
+            text-align: right;
+            font-size: 25px;
         }
 
         h3 {
@@ -82,6 +85,27 @@
         p{
             text-align: center; 
         }
+
+        p1 {
+            text-align: right;
+        }
+
+        p2 {
+            text-align: right;
+        }
+
+        p3 {
+            text-align: right;
+        }
+
+        p4 {
+            text-align: right;
+        }
+
+        p5 {
+            text-align: right;
+        }
+
 
         button{
             width:110px;
@@ -104,7 +128,8 @@
 </head>
 
 <body>
-    <header><h1>QuickTasktic<script src="https://cdn.lordicon.com/lordicon-1.2.0.js"></script>
+    <header>
+        <h1>QuickTasktic<script src="https://cdn.lordicon.com/lordicon-1.2.0.js"></script>
         <lord-icon
             src="https://cdn.lordicon.com/guqkthkk.json"
             trigger="loop"
@@ -113,12 +138,19 @@
             colors="primary:#e4e4e4"
             style="width:65px;height:65px">
         </lord-icon></h1>
+        
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+
         <h3>Plan your day with ease!</h3>
     </header>
 
     <section id="Errands">
-        <h2>Errands</h2>
-
+        <p1> - Sign into your Google account with the button in the top-right corner</p1><br>
+        <p2> - List up to five errands you'd like to accomplish by entering their name, whether or not they are time-sensitive, and if they occur at a particular location</p2> <br>
+        <p3> - Our website will analyze the quickest route to accomplish all of your errands while taking into account parking at each of the locations listed</p3> <br>
+        <p4> - Optimal locations for errands in which an address is not specified will be found</p4> <br>
+        <p5> - A link to a Google calendar with your full-day itenerary will be generated that you can subscribe too!</p5> <br>
     <form id="errandsForm">
 
     
