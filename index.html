@@ -7,23 +7,20 @@
     
     <style>
         body {
-            margin: 10;
             padding: 0;
             font-family: 'Georgia', sans-serif;
             background: linear-gradient(to bottom, #1b4976, #528db7, #ffffff);
-            height: 150vh;
+            height: 170vh;
             display: flex;
             align-items: center;
-            justify-content: center;
             flex-direction: column;
             color: #ffffff;
         }
 
         header{
             text-align: center;
-            width: 110%;
-            margin-bottom: 5px;
-            margin-top: 0px;
+            width: 100%;
+            background-color: #153d65;
         }
 
         input {
@@ -51,21 +48,30 @@
 
         label {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         float: left;
         width: 100%;
         padding: 10px;
+        text-align: center;
+        line-height: 2.5;
         }
 
         h1 {
             font-size: 60px;
         }
+
+        h2 {
+            text-align: center;
+        }
+
         footer {
         background-color: #1b4976;
         text-align: center;
         width: 110%;
         padding: 0px;
-        margin-top:50px;
+        margin-top:0px;
+        position: fixed;
+        bottom: 0;
         }
 
         p{
@@ -90,7 +96,7 @@
         </lord-icon></h1></header>
 
     <section id="Errands">
-        <h2>Errands List</h2>
+        <h2>Errands</h2>
 
     <form id="errandsForm">
 
@@ -110,11 +116,11 @@
     </label>
 
     <label>   
-        <input type="text" id="text" tabindex="10" placeholder="Errand #1"><br>
+        <input type="text" id="text" tabindex="10" placeholder="Errand #2"><br>
         Is This Event Time-Sensitive?
         <input type="checkbox" id="showTextboxCheckbox1"> Yes <br>
         <div id="textboxContainer1" style="display: none;">
-            <input type="text" maxwidth=50px id="text" tabindex="10" placeholder="Start Time Ex. 17:25">
+            <input type="text" maxwidth=50px id="text" tabindex="10" placeholder="Start Time (Ex. 17:25)">
         </div>
         Do You Have A Particular Address?
         <input type="checkbox" id="showTextboxCheckbox2"> Yes <br>
@@ -124,7 +130,7 @@
     </label>
 
     <label>   
-        <input type="text" id="text" tabindex="10" placeholder="Errand #1"><br>
+        <input type="text" id="text" tabindex="10" placeholder="Errand #3"><br>
         Is This Event Time-Sensitive?
         <input type="checkbox" id="showTextboxCheckbox4"> Yes <br>
         <div id="textboxContainer4" style="display: none;">
@@ -138,7 +144,7 @@
     </label>
 
     <label>   
-        <input type="text" id="text" tabindex="10" placeholder="Errand #1"><br>
+        <input type="text" id="text" tabindex="10" placeholder="Errand #4"><br>
         Is This Event Time-Sensitive?
         <input type="checkbox" id="showTextboxCheckbox6"> Yes <br>
         <div id="textboxContainer6" style="display: none;">
@@ -152,7 +158,7 @@
     </label>
 
     <label>   
-        <input type="text" id="text" tabindex="10" placeholder="Errand #1"><br>
+        <input type="text" id="text" tabindex="10" placeholder="Errand #5"><br>
         Is This Event Time-Sensitive?
         <input type="checkbox" id="showTextboxCheckbox8"> Yes <br>
         <div id="textboxContainer8" style="display: none;">
