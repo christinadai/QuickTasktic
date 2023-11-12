@@ -1,9 +1,9 @@
 # This code is for v1 of the openai package: pypi.org/project/openai
 import openai
 import json
-client = openai.OpenAI(api_key="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")
+client = openai.OpenAI(api_key="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")
 
-from backend import Task
+#from backend import Task
 #x = Task[1].getname()
 
 response = client.chat.completions.create(
