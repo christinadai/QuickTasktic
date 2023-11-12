@@ -1,17 +1,22 @@
 # FUNCTIONS
 #time conversion
 def timetodec(timestr):
-	try:
-		hrs, min = map(int, timestr.split(':'))
-		dectime =(hrs+min)/60.0
+    '''try:
+		hrs, min = map(int, str(timestr).split(':'))
+        
+		dectime =hrs+min/60.0
 		return dectime
 	except ValueError:
-		print('Invalid time!')
+		print('Invalid time!')'''
+    a = timestr.split(":")
+    hours, min = a[0],a[1]
+    dectime = int(hours) + int(min)/60.0
+    return dectime
 		
 # return most time-sensitive task
 def find_min_ts_task(task_array):
     time_sensitive_tasks = [task for task in task_array if task.time_sensitive]
-
+    
     if time_sensitive_tasks:
         min_ts_task = min(time_sensitive_tasks, key=lambda task: task.ts_time)
         return min_ts_task
@@ -39,7 +44,7 @@ def sort_rank(rank):
 #variables
 num_of_tasks = 0 
 tasks = []       # An empty list to store task objects
-departure_time_string = ''
+departure_time_string = '12:10'
 departure_time = timetodec(departure_time_string) 
 curr_time = departure_time 
 curr_coordinate_x = 0.0 
@@ -57,6 +62,6 @@ class Task:
         self.specific_coordX = specific_coordX
         self.specific_coordY = specific_coordY
 
-ts_time = 0.0
+ts_time = "10:02"
 ts_time = timetodec(ts_time)
 
