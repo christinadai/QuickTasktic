@@ -1,0 +1,9 @@
+# how to run flask: make sure you have python3 downloaded
+# do this command to download flask: sudo pip3 install -U flask
+# do this command to download flask_cors: sudo pip3 install -U flask_cors
+
+# do this command to run flask: python3 -m flask --app test run
+# test is the name of the backend file, change it if file name differs
+# while flask is running, right click the .html file, copy path into browser
+# input userinput onto website
+# click submit

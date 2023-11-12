@@ -14,7 +14,7 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 @app.route('/process', methods=['POST'])
 @cross_origin()
 def process():
-    print("hello") # ignore, test print
+    #print("hello") # ignore, test print
     data = request.get_data()  # data is byte encoded
     print(data)
     data_str = data.decode('utf-8')  #decode byte data into string
