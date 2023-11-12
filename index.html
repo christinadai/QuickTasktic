@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+<title> QuickTASKtic!</title>
+
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickTASKtic</title>
+    
     <style>
         body {
-            margin: 0;
+            margin: 10;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #001f3f, #0074c8, #ffffff);
-            height: 100vh;
+            font-family: 'Georgia', sans-serif;
+            background: linear-gradient(to bottom, #1b4976, #528db7, #ffffff);
+            height: 110vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -18,8 +19,12 @@
             color: #ffffff;
         }
 
-        h1 {
-            margin-bottom: 20px;
+        header{
+            background-color: #164370;
+            text-align: center;
+            width: 110%;
+            margin-bottom: 5px;
+            margin-top: 100px;
         }
 
         input {
@@ -30,6 +35,7 @@
         }
 
         input[type="number"] {
+            align-items: center;
             width: 50px;
         }
 
@@ -38,16 +44,135 @@
             color: #ffffff;
             cursor: pointer;
         }
+
+        input[type="text"]{
+            cursor:pointer;
+            height:10px;
+        }
+
+        label {
+        display: block;
+        margin-bottom: 5px;
+        float: left;
+        width: 50%;
+        padding: 10px;
+        }
+
+        footer {
+        background-color: #1b4976;
+        text-align: center;
+        width: 110%;
+        padding: 0px;
+        margin-top:10px;
+        }
+
+        p{
+            text-align: center; 
+        }
+
+        button{
+            margin-bottom: 15px;
+        }
     </style>
 </head>
+
 <body>
+    <header><h1>QuickTASKtic</h1></header>
     <div>
-        <h1>QuickTASKtic</h1>
+        <p>Please Enter the Number of Errands</p>
         <form>
-            <label for="errandsInput">Please enter the number of errands:</label>
             <input type="number" id="errandsInput" name="errandsInput" min="1" max="8">
             <button onclick="submitErrands()">Submit</button>
         </form>
     </div>
-</body>
+
+    <section id="Errands">
+    <h2>Errands List</h2>
+    <form id="errandsForm">
+
+    <label>
+        <input type="checkbox" name="errand1" value="Grocery shopping"> Grocery shopping
+        <input type="checkbox" name="timeSensitive2" value="yes"> Yes
+        <input type="checkbox" name="timeSensitive2" value="no"> No
+        <p1>Location:</p1>
+        <input type="text" name="location1" value="">
+    </label>
+    <label>
+        <input type="checkbox" name="errand2" value="Pick up dry cleaning"> Pick up dry cleaning
+        <input type="checkbox" name="timeSensitive2" value="yes"> Yes
+        <input type="checkbox" name="timeSensitive2" value="no"> No
+        <p1>Location:</p1>
+        <input type="text" name="location2" value="">
+    </label>
+    <label>
+        <input type="checkbox" name="errand3" value="Visit the post office"> Visit the post office
+        <input type="checkbox" name="timeSensitive2" value="yes"> Yes
+        <input type="checkbox" name="timeSensitive2" value="no"> No
+        <p1>Location:</p1>
+        <input type="text" name="location3" value="">
+    </label>
+    <label>
+        <input type="checkbox" name="errand4" value="Pick up kids from school"> Pick up kids from school
+        <input type="checkbox" name="timeSensitive2" value="yes"> Yes
+        <input type="checkbox" name="timeSensitive2" value="no"> No
+        <p1>Location:</p1>
+        <input type="text" name="location4" value="">
+    </label>
+    <label>
+        <input type="checkbox" name="errand5" value="Return clothes"> Return clothes
+        <input type="checkbox" name="timeSensitive2" value="yes"> Yes
+        <input type="checkbox" name="timeSensitive2" value="no"> No
+        <p1>Location:</p1>
+        <input type="text" name="location5" value="">
+    </label>
+    <label>
+        <input type="checkbox" name="errand6" value="Walk the dog"> Walk the dog
+        <input type="checkbox" name="timeSensitive2" value="yes"> Yes
+        <input type="checkbox" name="timeSensitive2" value="no"> No
+        <p1>Location:</p1>
+        <input type="text" name="location6" value="">
+    </label>
+    <label>
+        <input type="checkbox" name="errand7" value="Make dinner"> Make dinner
+        <input type="checkbox" name="timeSensitive2" value="yes"> Yes
+        <input type="checkbox" name="timeSensitive2" value="no"> No
+        <p1>Location:</p1>
+        <input type="text" name="location7" value="">
+    </label>
+    <label>
+        <input type="checkbox" name="errand8" value="Clean the house"> Clean the house
+        <input type="checkbox" name="timeSensitive2" value="yes"> Time Sensitive 
+        <input type="checkbox" name="timeSensitive2" value="no"> Not Time Sensitive
+        <p1>Location:</p1>
+        <input type="text" name="location8" value="">
+    </label>
+</section>
+    <!-- Add more errands as needed -->
+
+    <button type="button" onclick="showCheckedErrands()">Show Checked Errands</button>
+
+    <script>
+        function showCheckedErrands() {
+        const form = document.getElementById('errandsForm');
+        const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+        const checkedErrands = [];
+    
+        checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+            checkedErrands.push(checkbox.value);
+            }
+        });
+    
+        if (checkedErrands.length > 0) {
+            alert('Checked Errands:\n' + checkedErrands.join('\n'));
+        } else {
+            alert('No errands checked.');
+        }
+        }
+        </script>
+    </body>
+    <footer>
+        <p>Authors: Arran Kooner, Christina Dai, Ian Kennar, Anika Sethi, Ryan Kiniris, Gwyn Anawalt</p>
+        <p><a href="mailto:hege@example.com">hege@example.com</a></p>
+    </footer>
 </html>
