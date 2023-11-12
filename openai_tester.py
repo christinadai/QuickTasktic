@@ -2,7 +2,7 @@
 import openai
 import jsonify
 import json
-client = openai.OpenAI(api_key="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")
+client = openai.OpenAI(api_key="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")
 import readingFronty
 
 #from backend import Task

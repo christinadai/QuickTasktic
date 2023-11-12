@@ -30,16 +30,23 @@ def process():
     data_str1 = data1.decode('utf-8')  #decode byte data into string
     #print(data_str)
     data_dict1 = json.loads(data_str1) #change string into a dictionary
-    #timeDepart = 11
+    #print(data_dict1[0])
+    #print(data_dict1[1])
+    #print(data_dict1[2])
+    #print(data_dict1[3])
+    #print(data_dict1[4])
+
+    
+
+    #print(data_dict1[0]["errand1"])
+
+    timeDepart = 11
     curLoc = [37.76441, -122.438156]
     #destination = [37.76441, 122.438156]
 
     name1 = data_dict1[0]["errand1"]
     qq = data_dict1[0]["tsTime1"]
-    if qq.find(":") != -1:
-        timesen1 = timetodec(qq)
-    else:
-        timesen1 = qq
+    timesen1 = timetodec(qq)
     specLoc1 = data_dict1[0]["specLoc1"]
     #print (name1)
     #print(get_coordinates(y))
@@ -71,10 +78,7 @@ def process():
 
     name2 = data_dict1[1]["errand2"]
     xx = data_dict1[1]["tsTime2"]
-    if xx.find(":") != -1:
-        timesen2 = timetodec(xx)
-    else:
-        timesen2 = xx
+    timesen2 = timetodec(xx)
     specLoc2 = data_dict1[1]["specLoc2"]
     #print (name2)
     cords2 = get_coordinates(name2, curLoc[0], curLoc[1])
@@ -101,37 +105,29 @@ def process():
         'total_parking_score': parking_score(parking_availability2, travel_time2)
     }
 
+    print(dict1)
+    print(dict2)
+
+    '''
     name3 = data_dict1[2]["errand3"]
-    oo = data_dict1[2]["tsTime3"]
-    if oo.find(":") != -1:
-        timesen3 = timetodec(oo)
-    else:
-        timesen3 = oo
-    specLoc3 = data_dict1[2]["specLoc3"]
-    #print (name2)
-    cords3 = get_coordinates(name3, curLoc[0], curLoc[1])
-    timespent3 = processAI(name3)
-    cordsx3 = float(cords3[0])
-    cordsy3 = float(cords3[1])
-    #print (cordsx2)
-    #print (cordsy2)
+    print (name3)
+    #print(get_coordinates(y))
+    cords3 = get_coordinates(name3)
+    print(cords3[0])
+    print(cords3[1])
+    processAI(name3)
+    '''
 
-    travel_time3 = route_travel_times(curLoc[0], curLoc[1], cordsx3, cordsy3)
-    parking_availability3 = street_parking(cordsx3, cordsy3, 1000)
-    #if (travel_time2 == None):
-    #    travel_time2 = 1
 
-    dict3 = {
-        'task_name': name3,
-        'time_spent': timespent3,
-        'time_sensitivity': timesen3,
-        #'time_sensitivity': time_sensitivity if timesen2 else None,
-        'given_location': specLoc3,
-        #'current_location': current_location,
-        'parking_availability': parking_availability3,
-        'travel_time': travel_time3,
-        'total_parking_score': parking_score(parking_availability3, travel_time3)
-    }
+    #print(lot_parking(cordx, cords[1]))
+    
+    #route_travel_times(cordx, cords[1], 37.349200, -121.938562)
+
+    
+
+
+
+
 
     name4 = data_dict1[3]["errand4"]
     rr = data_dict1[3]["tsTime4"]
@@ -147,39 +143,45 @@ def process():
     cordsy4 = float(cords4[1])
 
 
-    travel_time4 = route_travel_times(curLoc[0], curLoc[1], cordsx4, cordsy4)
-    parking_availability4 = street_parking(cordsx4, cordsy4, 1000)
-    #if (travel_time2 == None):
-    #    travel_time2 = 1
+    #print(data_dict1[3]["errand4"])
 
-    dict4 = {
-        'task_name': name4,
-        'time_spent': timespent4,
-        'time_sensitivity': timesen4,
-        #'time_sensitivity': time_sensitivity if timesen2 else None,
-        'given_location': specLoc4,
-        #'current_location': current_location,
-        'parking_availability': parking_availability4,
-        'travel_time': travel_time4,
-        'total_parking_score': parking_score(parking_availability4, travel_time4)
-    }
 
-    #print(dict1)
-    #print(dict2)
-    #print(dict3)
-    #print(dict4)
+    #x = str(data_dict1[4]["errand5"])
+    #print(processAI(x))
 
-    bigArray = [dict1, dict2, dict3, dict4]
+    #for i in range(5):
+     #   first_value = list(data_dict1[1]())[0]
+      #  print(first_value)
+    bigArray = [dict1, dict2]
+
     sortBigArray = sort_tasks(bigArray)
 
-    print_tasks(sortBigArray)
+
 
     return(sortBigArray)
     
     
+
+'''
+def task_dict(task_name, time_spent, time_sensitive, time_sensitivity, given_location, current_location, parking_availability, travel_time):
+    task_dict = {
+        'task_name': task_name,
+        'time_spent': time_spent,
+        'time_sensitive': time_sensitive,
+        'time_sensitivity': time_sensitivity if time_sensitive else None,
+        'given_location': given_location,
+        'current_location': current_location,
+        'parking_availability': parking_availability,
+        'travel_time': travel_time,
+        'total_parking_score': parking_score(parking_availability, travel_time)
+    }
+    return task_dict
+'''
+
+#print(process)
+
+    
 def parking_score(parking_percent, travel_time_mins):
-    if ( travel_time_mins == None):
-        travel_time_mins ==1
     return (0.3 * parking_percent) +( 0.7 * int(travel_time_mins))
 
 def print_tasks(array):
@@ -208,9 +210,12 @@ def sort_tasks(arr):
             pri.append(i)
         else:
             non_pri.append(i)
+            
+
     # sort pri by timing, this will never change
     pri = deque(sorted(pri, key = operator.itemgetter('time_sensitivity')))
     
+
     # create output order of tasks, checking priority queue every time a new task from the 
     ordered_tasks = []
     for i in range(len(non_pri)+len(pri)):
@@ -242,8 +247,37 @@ def sort_tasks(arr):
             ordered_tasks.append(popped_val)
             current_time = current_time + float(popped_val["time_spent"])
             #print(current_time)
-    ordered_tasks[i]
+        
+
     return ordered_tasks
+
+# test code for the function:
+    
+#task1 = task_dict("Task1", 3.5, False, 0, "N/A", "N/A", 0.8, 4)
+#task2 = task_dict("Task2", 6.5, False, 0, "N/A", "N/A", 1.0, 1)
+#task3 = task_dict("Task3", 7.0, False, 0, "N/A", "N/A", 0.08, 3)
+#task4 = task_dict("Task4", 0.25, True, 17.00, "N/A", "N/A", 0.05, 23)
+#task5 = task_dict("Task5", 0.05, False, 0, "N/A", "N/A", 0.9, 4)
+#task6 = task_dict("Task6", 1.00, True, 15.00, "N/A", "N/A", 0.2, 1)
+#task7 = task_dict("Task7", 0.02, False, 0, "N/A", "N/A", 0.4, 1)
+    
+#array = [task1, task2, task3, task4, task5, task6, task7]
+
+
+
+    # Process the data or perform any backend tasks
+    # ...
+
+    # Return a response back to the frontend
+    # response = {
+    #     "status": "success",
+    #     "message": "Data received successfully!"
+    # }
+    # print(response.message)
+
+    # response.headers.add('Access-Control-Allow-Origin', '*')
+
+    # return jsonify(response)
 
 if __name__ == '__main__':
     app.run()
