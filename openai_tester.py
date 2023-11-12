@@ -2,9 +2,12 @@
 import openai
 import json
 client = openai.OpenAI(api_key="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")
+import readingFronty
 
 #from backend import Task
 #x = Task[1].getname()
+
+
 
 response = client.chat.completions.create(
     model="gpt-4",

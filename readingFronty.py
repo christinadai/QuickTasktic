@@ -7,7 +7,7 @@ import json
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
-
+ 
 
 @app.route('/process', methods=['POST'])
 @cross_origin()
