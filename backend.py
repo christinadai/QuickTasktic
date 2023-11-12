@@ -1,6 +1,10 @@
 # FUNCTIONS
+'''
 import operator
 from collections import deque
+from readingFronty import process
+from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 
 def task_dict(task_name, time_spent, time_sensitive, time_sensitivity, given_location, current_location, parking_availability, travel_time):
     task_dict = {
@@ -15,6 +19,12 @@ def task_dict(task_name, time_spent, time_sensitive, time_sensitivity, given_loc
         'total_parking_score': parking_score(parking_availability, travel_time)
     }
     return task_dict
+
+#print(process)
+
+x = process()
+print(x)
+
     
 def parking_score(parking_percent, travel_time_mins):
     return (0.3 * parking_percent) +( 0.7 * travel_time_mins)
@@ -92,3 +102,4 @@ array = sort_tasks(array)
 
 
 
+'''
