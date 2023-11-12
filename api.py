@@ -94,7 +94,11 @@ def street_parking(lat, long, rad = 1000):
   }
 
   response = requests.request("GET", url, headers=headers, data=payload)
-  probability = response.json()["result"][0]["probability"]
+  #probability = response.json()["result"][0]["probability"]
+  try: 
+    probability = response.json()["result"][0]["probability"]
+  except KeyError as e:
+    probability = 10
   if (probability == None):
     probability = 10
   #print(probability)
