@@ -11,7 +11,7 @@
             padding: 0;
             font-family: 'Georgia', sans-serif;
             background: linear-gradient(to bottom, #1b4976, #528db7, #ffffff);
-            height: 110vh;
+            height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -87,88 +87,80 @@
     </div>
 
     <section id="Errands">
-    <h2>Errands List</h2>
+        <h2>Errands List</h2>
+
     <form id="errandsForm">
 
     <label>
-        <input type="checkbox" name="errand1" value="Grocery shopping"> Grocery shopping
-        <input type="checkbox" name="timeSensitive2" value="yes"> Yes
+        <input type="text" name="errand1" value="Errand1"> 
+        <input type="checkbox" id="showTextboxCheckbox"> Yes
         <input type="checkbox" name="timeSensitive2" value="no"> No
-        <p1>Location:</p1>
-        <input type="text" name="location1" value="">
+        <input type="checkbox" id="showTextboxCheckbox"> Address
+        <input type="checkbox" name="timeSensitive2" value="no"> Closest
     </label>
+    <div id="textboxContainer" style="display: none;">
+        <label for="textBox">Location:</label>
+        <input type="text" id="textBox">
+    </div>
+
     <label>
-        <input type="checkbox" name="errand2" value="Pick up dry cleaning"> Pick up dry cleaning
-        <input type="checkbox" name="timeSensitive2" value="yes"> Yes
+        <input type="text" name="errand2" value="Errand1"> 
+        <input type="checkbox" id="showTextboxCheckbox"> Yes
         <input type="checkbox" name="timeSensitive2" value="no"> No
-        <p1>Location:</p1>
-        <input type="text" name="location2" value="">
     </label>
+    <div id="textboxContainer" style="display: none;">
+        <label for="textBox">Location:</label>
+        <input type="text" id="textBox">
+    </div>
+
     <label>
-        <input type="checkbox" name="errand3" value="Visit the post office"> Visit the post office
-        <input type="checkbox" name="timeSensitive2" value="yes"> Yes
+        <input type="text" name="errand3" value="Errand1"> 
+        <input type="checkbox" id="showTextboxCheckbox"> Yes
         <input type="checkbox" name="timeSensitive2" value="no"> No
-        <p1>Location:</p1>
-        <input type="text" name="location3" value="">
     </label>
+    <div id="textboxContainer" style="display: none;">
+        <label for="textBox">Location:</label>
+        <input type="text" id="textBox">
+    </div>
+
     <label>
-        <input type="checkbox" name="errand4" value="Pick up kids from school"> Pick up kids from school
-        <input type="checkbox" name="timeSensitive2" value="yes"> Yes
+        <input type="text" name="errand4" value="Errand1"> 
+        <input type="checkbox" id="showTextboxCheckbox"> Yes
         <input type="checkbox" name="timeSensitive2" value="no"> No
-        <p1>Location:</p1>
-        <input type="text" name="location4" value="">
     </label>
+    <div id="textboxContainer" style="display: none;">
+        <label for="textBox">Location:</label>
+        <input type="text" id="textBox">
+    </div>
+
     <label>
-        <input type="checkbox" name="errand5" value="Return clothes"> Return clothes
-        <input type="checkbox" name="timeSensitive2" value="yes"> Yes
+        <input type="text" name="errand5" value="Errand1"> 
+        <input type="checkbox" id="showTextboxCheckbox"> Yes
         <input type="checkbox" name="timeSensitive2" value="no"> No
-        <p1>Location:</p1>
-        <input type="text" name="location5" value="">
     </label>
-    <label>
-        <input type="checkbox" name="errand6" value="Walk the dog"> Walk the dog
-        <input type="checkbox" name="timeSensitive2" value="yes"> Yes
-        <input type="checkbox" name="timeSensitive2" value="no"> No
-        <p1>Location:</p1>
-        <input type="text" name="location6" value="">
-    </label>
-    <label>
-        <input type="checkbox" name="errand7" value="Make dinner"> Make dinner
-        <input type="checkbox" name="timeSensitive2" value="yes"> Yes
-        <input type="checkbox" name="timeSensitive2" value="no"> No
-        <p1>Location:</p1>
-        <input type="text" name="location7" value="">
-    </label>
-    <label>
-        <input type="checkbox" name="errand8" value="Clean the house"> Clean the house
-        <input type="checkbox" name="timeSensitive2" value="yes"> Time Sensitive 
-        <input type="checkbox" name="timeSensitive2" value="no"> Not Time Sensitive
-        <p1>Location:</p1>
-        <input type="text" name="location8" value="">
-    </label>
+    <div id="textboxContainer" style="display: none;">
+        <label for="textBox">Location:</label>
+        <input type="text" id="textBox">
+    </div>
+
 </section>
     <!-- Add more errands as needed -->
 
-    <button type="button" onclick="showCheckedErrands()">Show Checked Errands</button>
+    <button type="button" onclick="submit()">Submit!</button>
 
     <script>
-        function showCheckedErrands() {
-        const form = document.getElementById('errandsForm');
-        const checkboxes = form.querySelectorAll('input[type="checkbox"]');
-        const checkedErrands = [];
-    
-        checkboxes.forEach((checkbox) => {
-            if (checkbox.checked) {
-            checkedErrands.push(checkbox.value);
-            }
-        });
-    
-        if (checkedErrands.length > 0) {
-            alert('Checked Errands:\n' + checkedErrands.join('\n'));
-        } else {
-            alert('No errands checked.');
+        function submit() {
+            //write POST stuff here
         }
-        }
+
+        const showTextboxCheckbox = document.getElementById('showTextboxCheckbox');
+    const textboxContainer = document.getElementById('textboxContainer');
+
+    // Add a click event listener to the checkbox
+    showTextboxCheckbox.addEventListener('click', function() {
+      // Show or hide the textbox based on the checkbox state
+    textboxContainer.style.display = showTextboxCheckbox.checked ? 'block' : 'none';
+    });
         </script>
     </body>
     <footer>
