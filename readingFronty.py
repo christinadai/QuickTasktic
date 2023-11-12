@@ -5,21 +5,23 @@ import json
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
+
 @app.route('/process', methods=['POST'])
 @cross_origin()
 def process():
     #print("hello") # ignore, test print
-    data = request.get_data()  # data is byte encoded
-    print(data)
-    data_str = data.decode('utf-8')  #decode byte data into string
-    print(data_str)
-    data_dict = json.loads(data_str) # change string into a dictionary
-    print(data_dict)
-    # name = data_dict["name"] #calling parts of the dictionary
-    # email = data_dict["email"]
-    # print("Name:", name)
-    # print("Email:", email)
-    return(data_dict)
+    data1 = request.get_data()  # data is byte encoded
+    #print(data)
+    data_str1 = data1.decode('utf-8')  #decode byte data into string
+    #print(data_str)
+    data_dict1 = json.loads(data_str1) # change string into a dictionary
+    print(data_dict1[0])
+    #print("hello")
+    print(data_dict1[1])
+    print(data_dict1[2])
+    print(data_dict1[3])
+    print(data_dict1[4])
+    return(data_dict1)
     
 
     # Process the data or perform any backend tasks
