@@ -1,3 +1,9 @@
+# how to run flask: make sure you have python3 and flask downloaded,
+# do this command: python3 -m flask --app test run
+# test is the name of the backend file, change it if file name differs
+# while flask is running, copy path the .html file into browser
+# input userinput onto website
+# click submit
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 import json
