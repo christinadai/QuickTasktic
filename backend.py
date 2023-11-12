@@ -20,7 +20,10 @@ def find_min_ts_task(task_array):
     
 #sortandrank
 def calculate_rank(park_rank, travel_time):
-    rank = (0.3 * park_rank) + (0.7 * travel_time)
+    count = len(park_rank)
+    rank = [0]*count
+    for i in range(count):
+        rank[i] = (0.3 * park_rank[i]) + (0.7 * travel_time[i])
     return rank
 
 def sort_rank(rank):
@@ -31,8 +34,7 @@ def sort_rank(rank):
                 temp = rank[j]
                 rank[j] = rank[j + 1]
                 rank[j + 1] = temp
-
-    return rank	
+    return rank		
 
 #variables
 num_of_tasks = 0 
@@ -47,13 +49,13 @@ starting_coordinate_y = -121.9367374882497
 num_of_time_sen_event = 0
 
 class Task:
-    def __init__(task_name, time_sensitive=False, ts_time_string='100:00', specific_location=False, specific_coordX = 0.0, specific_coordY = 0.0):
-        task_name.time_sensitive = time_sensitive
-        task_name.ts_time_string = ts_time_string
-        task_name.ts_time = ts_time
-        task_name.specific_location = specific_location
-        task_name.specific_coordX = specific_coordX
-        task_name.specific_coordY = specific_coordY
+    def __init__(self, task_name, time_sensitive=False, ts_time_string='100:00', specific_location=False, specific_coordX=0.0, specific_coordY=0.0):
+        self.task_name = task_name
+        self.time_sensitive = time_sensitive
+        self.ts_time_string = ts_time_string
+        self.specific_location = specific_location
+        self.specific_coordX = specific_coordX
+        self.specific_coordY = specific_coordY
 
 ts_time = 0.0
 ts_time = timetodec(ts_time)
