@@ -20,7 +20,10 @@ def find_min_ts_task(task_array):
     
 #sortandrank
 def calculate_rank(park_rank, travel_time):
-    rank = (0.3 * park_rank) + (0.7 * travel_time)
+    count = len(park_rank)
+    rank = [0]*count
+    for i in range(count):
+        rank[i] = (0.3 * park_rank[i]) + (0.7 * travel_time[i])
     return rank
 
 def sort_rank(rank):
@@ -31,8 +34,7 @@ def sort_rank(rank):
                 temp = rank[j]
                 rank[j] = rank[j + 1]
                 rank[j + 1] = temp
-
-    return rank	
+    return rank		
 
 #variables
 num_of_tasks = 0 

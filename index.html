@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickTASKtic</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #001f3f, #0074c8, #ffffff);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #ffffff;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="number"] {
+            width: 50px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #ffffff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>QuickTASKtic</h1>
+        <form>
+            <label for="errandsInput">Please enter the number of errands:</label>
+            <input type="number" id="errandsInput" name="errandsInput" min="1" max="8">
+            <button onclick="submitErrands()">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
