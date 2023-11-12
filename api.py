@@ -3,6 +3,8 @@ import json
 import xml.etree.ElementTree as ET
 import xmltodict
 
+#all inrix api timings are in military time
+
 def get_uas():
 
     url = "https://api.iq.inrix.com/auth/v1/appToken?appId=exhblj9x47&hashToken=ZXhoYmxqOXg0N3xwdjBNa3NEdkg1NmxOSXl6Z3dVd2QzWXlEelpheE5wOTZIMlYwS2dY"

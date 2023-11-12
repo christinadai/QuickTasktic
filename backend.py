@@ -95,13 +95,14 @@ task_info = create_task_dict(task_name, time_sensitive, time_sensitivity, given_
 
 # Print the created dictionary
 print(task_info)
-    def __init__(self, task_name, time_sensitive=False, ts_time_string='100:00', specific_location=False, specific_coordX=0.0, specific_coordY=0.0):
-        self.task_name = task_name
-        self.time_sensitive = time_sensitive
-        self.ts_time_string = ts_time_string
-        self.specific_location = specific_location
-        self.specific_coordX = specific_coordX
-        self.specific_coordY = specific_coordY
+    
+def __init__(self, task_name, time_sensitive=False, ts_time_string='100:00', specific_location=False, specific_coordX=0.0, specific_coordY=0.0):
+    self.task_name = task_name
+    self.time_sensitive = time_sensitive
+    self.ts_time_string = ts_time_string
+    self.specific_location = specific_location
+    self.specific_coordX = specific_coordX
+    self.specific_coordY = specific_coordY
 
 ts_time = "10:02"
 ts_time = timetodec(ts_time)
