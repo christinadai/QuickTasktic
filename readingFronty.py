@@ -184,8 +184,15 @@ def parking_score(parking_percent, travel_time_mins):
 
 def print_tasks(array):
     print("Hi! Thank you for choosing QuickTaskTic! Here is your schedule for the day: ")
+    total_time = 0
     for i in array:
-        print(f"{i['task_name']} will take you {i['travel_time']} minutes to drive there and {i['time_spent']} minutes to complete, you will be done at .")
+        print(f"{i['task_name']} will take you {i['travel_time']} minutes to drive there and {i['time_spent']} minutes to complete.")
+        total_time = total_time + i['task_name'] + i['time_spent']
+
+    total_hours = total_time / 60
+    total_minutes = total_time % 60
+
+    print(f"It will take you {total_hours} hours and {total_minutes} minutes to complete all of your tasks! Thank you for choosing QuickTaskTic!")
 
 # algorithm that gives the order of tasks based on availability
 # parameters: array of tasks (dictionaries)
