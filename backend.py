@@ -1,119 +1,94 @@
 # FUNCTIONS
+import operator
+from collections import deque
 
-#time conversion
-def timetodec(timestr):
-  
-    a = timestr.split(":")
-    hours, min = a[0],a[1]
-    dectime = int(hours) + int(min)/60.0
-    return dectime
-		
-# return most time-sensitive task
-def find_min_ts_task(task_array):
-    time_sensitive_tasks = [task for task in task_array if task.time_sensitive]
-    
-    if time_sensitive_tasks:
-        min_ts_task = min(time_sensitive_tasks, key=lambda task: task.ts_time)
-        return min_ts_task
-    else:
-        return None
-    
-#sortandrank
-def calculate_rank(park_rank, travel_time):
-    count = len(park_rank)
-    rank = [0]*count
-    for i in range(count):
-        rank[i] = (0.3 * park_rank[i]) + (0.7 * travel_time[i])
-    return rank
-
-def sort_rank(rank):
-    count = len(rank)
-    for i in range(count):
-        for j in range(0, count - i - 1):
-            if rank[j] < rank[j + 1]:
-                temp = rank[j]
-                rank[j] = rank[j + 1]
-                rank[j + 1] = temp
-    return rank		
-
-#variables
-
-num_of_tasks = 0 
-tasks = []       # An empty list to store task objects
-departure_time_string = '12:10'
-
-departure_time = timetodec(departure_time_string) 
-curr_time = departure_time 
-curr_coordinate_x = 0.0 
-curr_coordinate_y = 0.0 
-starting_coordinate_x = 37.3491386955373 
-starting_coordinate_y = -121.9367374882497 
-num_of_time_sen_event = 0
-
-
-#fix 
-
-#sortandrank
-def calculate_rank(park_rank, travel_time):
-    count = len(park_rank)
-    rank = [0]*count
-    for i in range(count):
-        rank[i] = (0.3 * park_rank[i]) + (0.7 * travel_time[i])
-    return rank
-         
-       
-def sort_rank(rank):
-    count = len(rank)
-    for i in range(count):
-        for j in range(0, count - i - 1):
-            if rank[j] < rank[j + 1]:
-                temp = rank[j]
-                rank[j] = rank[j + 1]
-                rank[j + 1] = temp
-
-    return rank		
-
-def create_task_dict(task_name, time_sensitive, time_sensitivity, given_location, current_location, parking_availability, total_parking_score):
+def task_dict(task_name, time_spent, time_sensitive, time_sensitivity, given_location, current_location, parking_availability, travel_time):
     task_dict = {
         'task_name': task_name,
+        'time_spent': time_spent,
         'time_sensitive': time_sensitive,
         'time_sensitivity': time_sensitivity if time_sensitive else None,
         'given_location': given_location,
         'current_location': current_location,
         'parking_availability': parking_availability,
-        'total_parking_score': total_parking_score
+        'travel_time': travel_time,
+        'total_parking_score': parking_score(parking_availability, travel_time)
     }
     return task_dict
+    
+def parking_score(parking_percent, travel_time_mins):
+    return (0.3 * parking_percent) +( 0.7 * travel_time_mins)
+
+# algorithm that gives the order of tasks based on availability
+# parameters: array of tasks (dictionaries)
+def sort_tasks(arr):
+    # assumed start time is 12:00 am
+    current_time = 00.00
+
+    # create (1) reg_task- array of non-priority tasks (2) priority_queue- array of priority tasks (sorted by time)
+    non_pri = deque()
+    pri = deque()
+    for i in arr:
+        if(i["time_sensitive"]):
+            pri.append(i)
+        else:
+            non_pri.append(i)
+            
+
+    # sort pri by timing, this will never change
+    pri = deque(sorted(pri, key = operator.itemgetter('time_sensitivity')))
+    
+
+    # create output order of tasks, checking priority queue every time a new task from the 
+    ordered_tasks = []
+    for i in range(len(non_pri)+len(pri)):
+        #sort the non_pri array by total_parking score (relative to the previous location, parking score will change)
+        non_pri = deque(sorted(non_pri, key= operator.itemgetter('total_parking_score')))
+
+        # compare first value of non_pri to priv
+        if(len(non_pri) == 0):
+            popped_val = pri.pop()
+            #print(popped_val)
+            ordered_tasks.append(popped_val)
+            current_time = current_time + popped_val["time_spent"]
+            #print(current_time)
+        elif(len(pri) == 0):
+            popped_val = non_pri.pop()
+            #print(popped_val)
+            ordered_tasks.append(popped_val)
+            current_time = current_time + popped_val["time_spent"]
+            #print(current_time)
+        elif(non_pri[0]["time_spent"] + current_time > pri[0]["time_sensitivity"]):
+            popped_val = pri.pop()
+            #print(popped_val)
+            ordered_tasks.append(popped_val)
+            current_time = current_time + popped_val["time_spent"]
+            #print(current_time)
+        else:
+            popped_val = non_pri.pop()
+            #print(popped_val)
+            ordered_tasks.append(popped_val)
+            current_time = current_time + popped_val["time_spent"]
+            #print(current_time)
+        
+
+    return ordered_tasks
+
+# test code for the function:
+    
+task1 = task_dict("Task1", 3.5, False, 0, "N/A", "N/A", 0.8, 4)
+task2 = task_dict("Task2", 6.5, False, 0, "N/A", "N/A", 1.0, 1)
+task3 = task_dict("Task3", 7.0, False, 0, "N/A", "N/A", 0.08, 3)
+task4 = task_dict("Task4", 0.25, True, 17.00, "N/A", "N/A", 0.05, 23)
+task5 = task_dict("Task5", 0.05, False, 0, "N/A", "N/A", 0.9, 4)
+task6 = task_dict("Task6", 1.00, True, 15.00, "N/A", "N/A", 0.2, 1)
+task7 = task_dict("Task7", 0.02, False, 0, "N/A", "N/A", 0.4, 1)
+    
+array = [task1, task2, task3, task4, task5, task6, task7]
+
+array = sort_tasks(array)
 
 
 
-
-# Example usage:
-task_name = "Complete Project"
-time_sensitive = True
-time_sensitivity = 3  # Assuming time sensitivity is an integer
-given_location = "Office"
-current_location = {'x': 10, 'y': 20}
-parking_availability = "High"
-total_parking_score = 9.5 
-
-
-task_info = create_task_dict(task_name, time_sensitive, time_sensitivity, given_location, current_location, parking_availability, total_parking_score)
-
-# Print the created dictionary
-print(task_info)
-
-ts_time = "10:02"
-ts_time = timetodec(ts_time)
-
-"""   
-def __init__(self, task_name, time_sensitive=False, ts_time_string='100:00', specific_location=False, specific_coordX=0.0, specific_coordY=0.0):
-    self.task_name = task_name
-    self.time_sensitive = time_sensitive
-    self.ts_time_string = ts_time_string
-    self.specific_location = specific_location
-    self.specific_coordX = specific_coordX
-    self.specific_coordY = specific_coordY
-"""
 
 
