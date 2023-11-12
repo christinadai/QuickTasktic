@@ -1,7 +1,7 @@
 import requests
 
-def get_coordinates():
-    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=grocery&location=37.349200%2C-121.938562&radius=1500&fields=formatted_address,name,geometry&key=AIzaSyBlP3GItzc6nLlcHHQPMldzK3Jjsg-Gjdo"
+def get_coordinates(x, y, z):
+    url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword={x}&location={y}%2C{z}&radius=10000&fields=formatted_address,name,geometry&key=AIzaSyBlP3GItzc6nLlcHHQPMldzK3Jjsg-Gjdo"
 
     payload = {}
     headers = {
@@ -11,12 +11,19 @@ def get_coordinates():
 
     response = requests.request("GET", url, headers=headers, data=payload)
 
-
+    #print(response.text)
     first_location = response.json()["results"][0]["geometry"]["location"]
     lat = first_location["lat"]
     long = first_location["lng"]
-    return(lat, long)
+    array = [lat, long]
+    #print(array)
+    return(array)
 
+
+#print(get_coordinates("shoe store", 37.76441, -122.438156))
+
+#testing
+#print(get_coordinates("grocery", 37.76441, -122.438156))
     #print(f"{lat}, {long}")
 
     #print(get_coordinates())
