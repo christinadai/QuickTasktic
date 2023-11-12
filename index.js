@@ -2,9 +2,9 @@ async function submitForm() {
     // alert('submitted form');
     console.log('submitted form');
     var errand1 = document.getElementById("errand1").value;  
-    var tsBool1 = document.getElementById("tsBool1").value;
+    //var tsBool1 = document.getElementById("tsBool1").value;
     var tsTime1 = document.getElementById("tsTime1").value;  
-    var specLocBool1 = document.getElementById("specLocBool1").value;
+    //var specLocBool1 = document.getElementById("specLocBool1").value;
     var specLoc1 = document.getElementById("specLoc1").value;
     // add more of these for input data
 
@@ -16,7 +16,7 @@ async function submitForm() {
         headers: {
             "Content-Type": "text/plain"
         },
-        body: JSON.stringify({ errand1: errand1, tsBool1: tsBool1, tsTime1: tsTime1, specLocBool1: specLocBool1, specLoc1: specLoc1})  // add to this if you have more variables
+        body: JSON.stringify({ errand1: errand1, tsTime1: tsTime1, specLoc1: specLoc1})  // add to this if you have more variables
     });
     //const data = await response.json();
     // console.log('data');

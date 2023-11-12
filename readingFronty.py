@@ -15,10 +15,10 @@ def process():
     print(data_str)
     data_dict = json.loads(data_str) # change string into a dictionary
     print(data_dict)
-    name = data_dict["name"] #calling parts of the dictionary
-    email = data_dict["email"]
-    print("Name:", name)
-    print("Email:", email)
+    # name = data_dict["name"] #calling parts of the dictionary
+    # email = data_dict["email"]
+    # print("Name:", name)
+    # print("Email:", email)
     return(data_dict)
     
 
