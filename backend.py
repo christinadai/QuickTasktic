@@ -1,4 +1,5 @@
 # FUNCTIONS
+
 #time conversion
 def timetodec(timestr):
   
@@ -49,6 +50,9 @@ starting_coordinate_x = 37.3491386955373
 starting_coordinate_y = -121.9367374882497 
 num_of_time_sen_event = 0
 
+
+#fix 
+
 #sortandrank
 def calculate_rank(park_rank, travel_time):
     count = len(park_rank)
@@ -81,6 +85,9 @@ def create_task_dict(task_name, time_sensitive, time_sensitivity, given_location
     }
     return task_dict
 
+
+
+
 # Example usage:
 task_name = "Complete Project"
 time_sensitive = True
@@ -95,7 +102,11 @@ task_info = create_task_dict(task_name, time_sensitive, time_sensitivity, given_
 
 # Print the created dictionary
 print(task_info)
-    
+
+ts_time = "10:02"
+ts_time = timetodec(ts_time)
+
+"""   
 def __init__(self, task_name, time_sensitive=False, ts_time_string='100:00', specific_location=False, specific_coordX=0.0, specific_coordY=0.0):
     self.task_name = task_name
     self.time_sensitive = time_sensitive
@@ -103,7 +114,6 @@ def __init__(self, task_name, time_sensitive=False, ts_time_string='100:00', spe
     self.specific_location = specific_location
     self.specific_coordX = specific_coordX
     self.specific_coordY = specific_coordY
+"""
 
-ts_time = "10:02"
-ts_time = timetodec(ts_time)
 
