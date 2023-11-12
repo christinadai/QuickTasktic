@@ -21,6 +21,7 @@ def process():
     print(data_dict1[2])
     print(data_dict1[3])
     print(data_dict1[4])
+    print(data_dict1[5])
     return(data_dict1)
     
 
