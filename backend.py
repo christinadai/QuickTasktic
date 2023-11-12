@@ -34,7 +34,6 @@ def sort_rank(rank):
                 temp = rank[j]
                 rank[j] = rank[j + 1]
                 rank[j + 1] = temp
-
     return rank		
 
 #variables
