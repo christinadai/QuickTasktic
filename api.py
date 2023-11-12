@@ -2,9 +2,9 @@ import requests
 import json
 import xml.etree.ElementTree as ET
 import xmltodict
+from googleMaps import get_coordinates # Google maps API
 
-#all inrix api timings are in military time
-
+# AUTHENTICATION
 def get_uas():
 
     url = "https://api.iq.inrix.com/auth/v1/appToken?appId=exhblj9x47&hashToken=ZXhoYmxqOXg0N3xwdjBNa3NEdkg1NmxOSXl6Z3dVd2QzWXlEelpheE5wOTZIMlYwS2dY"
@@ -16,7 +16,7 @@ def get_uas():
 
     return (response.json()["result"]["token"])
 
-
+# INRIX API 1 : gets route ID for route_travel_times
 def find_route(lat_1, long_1, lat_2, long_2):
     auth = get_uas()
 
@@ -34,8 +34,8 @@ def find_route(lat_1, long_1, lat_2, long_2):
     return (id)
 
 
-#Defauly departure time given in case not provided by user
-def route_travel_times(count, time_interval, lat_1, long_1, lat_2, long_2, dep_time = "2023-12-12T01:23:00Z"):
+# INRIX API 2: Gives fastest travel time given two locations (lat, long) format
+def route_travel_times(lat_1, long_1, lat_2, long_2, count = 1, time_interval = 45, dep_time = "2023-12-12T01:23:00Z"):
     auth = get_uas()
     
     route_id = find_route(lat_1, long_1, lat_2, long_2)
@@ -65,7 +65,7 @@ def route_travel_times(count, time_interval, lat_1, long_1, lat_2, long_2, dep_t
 
     return travel_time
 
-#Half a mile radius, maximum 10 minute walk
+# INRIX API 3: gives probability of getting street parking as a percent within 0.5 mile radius 
 def street_parking(lat, long, rad = 800):
     auth = get_uas()
 
@@ -82,11 +82,10 @@ def street_parking(lat, long, rad = 800):
 
 
 
-print(route_travel_times(15, 45, 37.770581, -122.442550, 37.765297, -122.442527, "2023-12-12T01:23:00Z"))
 """
 #testing:
 #street_parking(37.74304518280319, 122.42438793182373, 50)
-#route_travel_times(15, 45, 37.770581, -122.442550, 37.765297, -122.442527, "2023-11-12T01:23:00Z")
+#route_travel_times(15, 45, 37.770581, -122.442550, 37.765297, -122.442527, "2023-12-12T01:23:00Z")
 #find_route(37.770581, -122.442550, 37.765297, -122.442527)
 #print(get_uas())
 """
