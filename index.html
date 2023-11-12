@@ -11,7 +11,7 @@
             padding: 0;
             font-family: 'Georgia', sans-serif;
             background: linear-gradient(to bottom, #1b4976, #528db7, #ffffff);
-            height: 90vh;
+            height: 150vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -20,11 +20,10 @@
         }
 
         header{
-            background-color: #164370;
             text-align: center;
             width: 110%;
             margin-bottom: 5px;
-            margin-top: 100px;
+            margin-top: 0px;
         }
 
         input {
@@ -66,7 +65,7 @@
         text-align: center;
         width: 110%;
         padding: 0px;
-        margin-top:10px;
+        margin-top:50px;
         }
 
         p{
@@ -101,22 +100,70 @@
         Is This Event Time-Sensitive?
         <input type="checkbox" id="showTextboxCheckbox"> Yes <br>
         <div id="textboxContainer" style="display: none;">
-            <input type="text" id="text" tabindex="10" placeholder="Start Time Ex. 17:25">
+            <input type="text" maxwidth=50px id="text" tabindex="10" placeholder="Start Time Ex. 17:25">
         </div>
         Do You Have A Particular Address?
-        <input type="checkbox" id="showTextboxCheckbox"> Yes <br>
-        <div id="textboxContainer" style="display: none;">
+        <input type="checkbox" id="showTextboxCheckbox3"> Yes <br>
+        <div id="textboxContainer3" style="display: none;">
             <input type="text" id="text" tabindex="10" placeholder="Location">
         </div> 
-    <label>
-        <input type="text" name="errand2" value="Errand1"> 
-        <input type="checkbox" id="showTextboxCheckbox"> Yes
-        <input type="checkbox" name="timeSensitive2" value="no"> No
     </label>
-    <div id="textboxContainer" style="display: none;">
-        <label for="textBox">Location:</label>
-        <input type="text" id="textBox">
-    </div>
+
+    <label>   
+        <input type="text" id="text" tabindex="10" placeholder="Errand #1"><br>
+        Is This Event Time-Sensitive?
+        <input type="checkbox" id="showTextboxCheckbox1"> Yes <br>
+        <div id="textboxContainer1" style="display: none;">
+            <input type="text" maxwidth=50px id="text" tabindex="10" placeholder="Start Time Ex. 17:25">
+        </div>
+        Do You Have A Particular Address?
+        <input type="checkbox" id="showTextboxCheckbox2"> Yes <br>
+        <div id="textboxContainer2" style="display: none;">
+            <input type="text" id="text" tabindex="10" placeholder="Location">
+        </div> 
+    </label>
+
+    <label>   
+        <input type="text" id="text" tabindex="10" placeholder="Errand #1"><br>
+        Is This Event Time-Sensitive?
+        <input type="checkbox" id="showTextboxCheckbox4"> Yes <br>
+        <div id="textboxContainer4" style="display: none;">
+            <input type="text" maxwidth=50px id="text" tabindex="10" placeholder="Start Time Ex. 17:25">
+        </div>
+        Do You Have A Particular Address?
+        <input type="checkbox" id="showTextboxCheckbox5"> Yes <br>
+        <div id="textboxContainer5" style="display: none;">
+            <input type="text" id="text" tabindex="10" placeholder="Location">
+        </div> 
+    </label>
+
+    <label>   
+        <input type="text" id="text" tabindex="10" placeholder="Errand #1"><br>
+        Is This Event Time-Sensitive?
+        <input type="checkbox" id="showTextboxCheckbox6"> Yes <br>
+        <div id="textboxContainer6" style="display: none;">
+            <input type="text" maxwidth=50px id="text" tabindex="10" placeholder="Start Time Ex. 17:25">
+        </div>
+        Do You Have A Particular Address?
+        <input type="checkbox" id="showTextboxCheckbox7"> Yes <br>
+        <div id="textboxContainer7" style="display: none;">
+            <input type="text" id="text" tabindex="10" placeholder="Location">
+        </div> 
+    </label>
+
+    <label>   
+        <input type="text" id="text" tabindex="10" placeholder="Errand #1"><br>
+        Is This Event Time-Sensitive?
+        <input type="checkbox" id="showTextboxCheckbox8"> Yes <br>
+        <div id="textboxContainer8" style="display: none;">
+            <input type="text" maxwidth=50px id="text" tabindex="10" placeholder="Start Time Ex. 17:25">
+        </div>
+        Do You Have A Particular Address?
+        <input type="checkbox" id="showTextboxCheckbox9"> Yes <br>
+        <div id="textboxContainer9" style="display: none;">
+            <input type="text" id="text" tabindex="10" placeholder="Location">
+        </div> 
+    </label>
 
 
     
@@ -125,19 +172,98 @@
     <!-- Add more errands as needed -->
 
     <button type="button" onclick="submit()">Submit!</button>
-
     <script>
         function submit() {
             //write POST stuff here
         }
 
-        const showTextboxCheckbox = document.getElementById('showTextboxCheckbox');
+    const showTextboxCheckbox = document.getElementById('showTextboxCheckbox');
     const textboxContainer = document.getElementById('textboxContainer');
+
+    const showTextboxCheckbox2 = document.getElementById('showTextboxCheckbox2');
+    const textboxContainer2 = document.getElementById('textboxContainer2');
+
+    const showTextboxCheckbox3 = document.getElementById('showTextboxCheckbox3');
+    const textboxContainer3 = document.getElementById('textboxContainer3');
+
+    const showTextboxCheckbox4 = document.getElementById('showTextboxCheckbox4');
+    const textboxContainer4 = document.getElementById('textboxContainer4');
+
+    const showTextboxCheckbox5 = document.getElementById('showTextboxCheckbox5');
+    const textboxContainer5 = document.getElementById('textboxContainer5');
+
+    const showTextboxCheckbox6 = document.getElementById('showTextboxCheckbox6');
+    const textboxContainer6 = document.getElementById('textboxContainer6');
+
+    const showTextboxCheckbox7 = document.getElementById('showTextboxCheckbox7');
+    const textboxContainer7 = document.getElementById('textboxContainer7');
+
+    const showTextboxCheckbox8 = document.getElementById('showTextboxCheckbox8');
+    const textboxContainer8 = document.getElementById('textboxContainer8');
+
+    const showTextboxCheckbox9 = document.getElementById('showTextboxCheckbox9');
+    const textboxContainer9 = document.getElementById('textboxContainer9');
+
+    const showTextboxCheckbox1 = document.getElementById('showTextboxCheckbox1');
+    const textboxContainer1 = document.getElementById('textboxContainer1');
 
     // Add a click event listener to the checkbox
     showTextboxCheckbox.addEventListener('click', function() {
       // Show or hide the textbox based on the checkbox state
     textboxContainer.style.display = showTextboxCheckbox.checked ? 'block' : 'none';
+    });
+
+    showTextboxCheckbox2.addEventListener('click', function() {
+      // Show or hide the textbox based on the checkbox state
+    textboxContainer2.style.display = showTextboxCheckbox2.checked ? 'block' : 'none';
+    });
+
+    // Add a click event listener to the checkbox
+    showTextboxCheckbox3.addEventListener('click', function() {
+      // Show or hide the textbox based on the checkbox state
+    textboxContainer3.style.display = showTextboxCheckbox3.checked ? 'block' : 'none';
+    });
+
+    // Add a click event listener to the checkbox
+    showTextboxCheckbox4.addEventListener('click', function() {
+      // Show or hide the textbox based on the checkbox state
+    textboxContainer4.style.display = showTextboxCheckbox4.checked ? 'block' : 'none';
+    });
+
+    // Add a click event listener to the checkbox
+    showTextboxCheckbox5.addEventListener('click', function() {
+      // Show or hide the textbox based on the checkbox state
+    textboxContainer5.style.display = showTextboxCheckbox5.checked ? 'block' : 'none';
+    });
+
+    // Add a click event listener to the checkbox
+    showTextboxCheckbox6.addEventListener('click', function() {
+      // Show or hide the textbox based on the checkbox state
+    textboxContainer6.style.display = showTextboxCheckbox6.checked ? 'block' : 'none';
+    });
+
+    // Add a click event listener to the checkbox
+    showTextboxCheckbox7.addEventListener('click', function() {
+      // Show or hide the textbox based on the checkbox state
+    textboxContainer7.style.display = showTextboxCheckbox7.checked ? 'block' : 'none';
+    });
+
+    // Add a click event listener to the checkbox
+    showTextboxCheckbox8.addEventListener('click', function() {
+      // Show or hide the textbox based on the checkbox state
+    textboxContainer8.style.display = showTextboxCheckbox8.checked ? 'block' : 'none';
+    });
+
+    // Add a click event listener to the checkbox
+    showTextboxCheckbox9.addEventListener('click', function() {
+      // Show or hide the textbox based on the checkbox state
+    textboxContainer9.style.display = showTextboxCheckbox9.checked ? 'block' : 'none';
+    });
+
+    // Add a click event listener to the checkbox
+    showTextboxCheckbox1.addEventListener('click', function() {
+      // Show or hide the textbox based on the checkbox state
+    textboxContainer1.style.display = showTextboxCheckbox1.checked ? 'block' : 'none';
     });
         </script>
     </body>
