@@ -1,7 +1,7 @@
 # This code is for v1 of the openai package: pypi.org/project/openai
 import openai
 import json
-client = openai.OpenAI(api_key="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")
+client = openai.OpenAI(api_key="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")
 
 
 
@@ -10,7 +10,7 @@ response = client.chat.completions.create(
     messages=[
     {
         "role": "user",
-        "content": "give me JUST a number: AVERAGE time spent in grocery store without any extra words. don't say \"the average time spent in a grocery store is\" and don't say “minute”. the unit will be minutes, but only give the number back"
+        "content": "give me JUST a number: AVERAGE time spent in shoe store without any extra words. don't say \"the average time spent in a shoe store is\" and don't say “minute”. the unit will be minutes, but only give the number back"
     }
     ],
     temperature=1,
