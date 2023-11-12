@@ -65,6 +65,10 @@
             text-align: center;
         }
 
+        h3 {
+            margin-top:5px;
+        }
+
         footer {
         background-color: #1b4976;
         text-align: center;
@@ -100,7 +104,7 @@
 </head>
 
 <body>
-    <header><h1>QuickTASKtic<script src="https://cdn.lordicon.com/lordicon-1.2.0.js"></script>
+    <header><h1>QuickTasktic<script src="https://cdn.lordicon.com/lordicon-1.2.0.js"></script>
         <lord-icon
             src="https://cdn.lordicon.com/guqkthkk.json"
             trigger="loop"
@@ -108,7 +112,9 @@
             state="in-reveal"
             colors="primary:#e4e4e4"
             style="width:65px;height:65px">
-        </lord-icon></h1></header>
+        </lord-icon></h1>
+        <h3>Plan your day with ease!</h3>
+    </header>
 
     <section id="Errands">
         <h2>Errands</h2>
@@ -126,7 +132,7 @@
         Do You Have A Particular Address?
         <input type="checkbox" id="specLocBool1"> Yes <br>
         <div id="textboxContainer1" style="display: none;">
-            <input type="text" id="specLoc1" tabindex="10" placeholder="Location">
+            <input type="text" id="specLoc1" tabindex="10" placeholder="Address">
         </div> 
     </label>
 
@@ -140,7 +146,7 @@
         Do You Have A Particular Address?
         <input type="checkbox" id="specLocBool2"> Yes <br>
         <div id="textboxContainer3" style="display: none;">
-            <input type="text" id="specLoc2" tabindex="10" placeholder="Location">
+            <input type="text" id="specLoc2" tabindex="10" placeholder="Address">
         </div> 
     </label>
 
@@ -154,7 +160,7 @@
         Do You Have A Particular Address?
         <input type="checkbox" id="specLocBool3"> Yes <br>
         <div id="textboxContainer5" style="display: none;">
-            <input type="text" id="specLoc3" tabindex="10" placeholder="Location">
+            <input type="text" id="specLoc3" tabindex="10" placeholder="Address">
         </div> 
     </label>
 
@@ -168,7 +174,7 @@
         Do You Have A Particular Address?
         <input type="checkbox" id="specLocBool4"> Yes <br>
         <div id="textboxContainer7" style="display: none;">
-            <input type="text" id="specLoc4" tabindex="10" placeholder="Location">
+            <input type="text" id="specLoc4" tabindex="10" placeholder="Address">
         </div> 
     </label>
 
@@ -182,7 +188,7 @@
         Do You Have A Particular Address?
         <input type="checkbox" id="specLocBool5"> Yes <br>
         <div id="textboxContainer9" style="display: none;">
-            <input type="text" id="specLoc5" tabindex="10" placeholder="Location">
+            <input type="text" id="specLoc5" tabindex="10" placeholder="Address">
         </div> 
     </label>
 
@@ -272,7 +278,7 @@
     });
 
     // Add a click event listener to the checkbox
-    stsBool5.addEventListener('click', function() {
+    tsBool5.addEventListener('click', function() {
       // Show or hide the textbox based on the checkbox state
     textboxContainer8.style.display = tsBool5.checked ? 'block' : 'none';
     });
