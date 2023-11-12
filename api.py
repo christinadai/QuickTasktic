@@ -160,11 +160,10 @@ def find_route(lat_1, long_1, lat_2, long_2):
 
 
 # INRIX API 2: Gives fastest travel time given two locations (lat, long) format
-def route_travel_times(lat_1, long_1, lat_2, long_2, count = 3, time_interval = 45):#dep_time = "2023-11-13T10:23:00Z"):
+def route_travel_times(lat_1, long_1, lat_2, long_2, count = 3, time_interval = 45):
     auth = get_uas()
     
     route_id = find_route(lat_1, long_1, lat_2, long_2)
-    print(route_id)
 
     url = f"https://api.iq.inrix.com/routeTravelTimes?routeId={route_id}&travelTimeCount={count}&travelTimeInterval={time_interval}"
 
@@ -175,20 +174,10 @@ def route_travel_times(lat_1, long_1, lat_2, long_2, count = 3, time_interval = 
 
     response = requests.request("GET", url, headers=headers, data=payload)
     
-    #Convert XML/Text file (response) to JSON (json_data)
+    #Convert XML/Text file (response) to JSON/dictionary (json_data)
 
     xml_dict = xmltodict.parse(response.text)
-    # print(type(xml_dict))
-    # print(xml_dict)
-
-    # # Convert the Python dictionary to string
-    # str_data = json.dumps(xml_dict, indent=2)  # indent for pretty printing
-    # print(type(str_data))
-
-    # #Convert data from string to json
-    # parsed_json = json.loads(str_data)
-
-    #print(parsed_json)
+    #print(xml_dict)
     
     # Use get to get info
     travel_time = xml_dict.get('Inrix', {}).get("Trip", {}).get("Route", {}).get("TravelTimes", {}).get("TravelTime", [{}])[0].get("@travelTimeMinutes")
@@ -222,16 +211,11 @@ def street_parking(lat, long, rad = 800):
     }
 
     response = requests.request("GET", url, headers=headers, data=payload)
-
-    max_item = max(response, key=lambda x: float(x.get("probability", 0)), default=None)
-
-    #max_item = max(response, key=lambda x: x.get("results", [])[0].get("probability", 0), default=None)
-
-    print(max_item)
-
+    probability = response.json["result"]["probability"]
+    print(probability)
     #return (response.json())
 
-print(street_parking(37.74304518280319, -122.42438793182373, 75))
+print(route_travel_times(37.770582, -122.44255, 37.765600, -122.442527))
 
 """
 #testing:
